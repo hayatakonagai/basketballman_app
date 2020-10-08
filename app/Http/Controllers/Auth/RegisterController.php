@@ -51,10 +51,16 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'postal_code' => ['required', 'string'],
-            'address' => ['required', 'string'],
-            'phone' => ['required', 'string'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'gender' => ['required'],
+            'height' => ['required','integer'],
+            'weight' => ['nullable','integer'],
+            'age' => ['required','integer'],
+            'where' => ['required'],
+            'position' => ['required'],
+            'carrer' => ['required'],
+            'acievement' => ['nullable','max:255'],
+            'appeal' => ['nullable','max:255'],
         ]);
     }
 
@@ -88,10 +94,16 @@ protected function create(array $data)
     return User::create([
         'name' => $data['name'],
         'email' => $data['email'],
-        'postal_code' => $data['postal_code'],
-        'address' => $data['address'],
-        'phone' => $data['phone'],
         'password' => Hash::make($data['password']),
+        'gender' => $data['gender'],
+        'height' => $data['height'],
+        'weight' => $data['weight'],
+        'age' => $data['age'],
+        'where' => $data['where'],
+        'position' => $data['position'],
+        'carrer' => $data['carrer'],
+        'acievement' => $data['acievement'],
+        'appeal' => $data['appeal'],
     ]);
 }
 }
