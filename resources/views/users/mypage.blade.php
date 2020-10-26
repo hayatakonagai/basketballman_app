@@ -4,9 +4,11 @@
 <div class="container d-flex justify-content-center mt-3">
     <div class="w-50">
         <h1>マイページ</h1>
-
         <hr>
+        @if ($user->image !== "")
+               <img src="{{ asset('storage/user/'.$user->image) }}" class="h-10 img-fluid">
 
+               @endif
         <div class="container">
             <div class="d-flex justify-content-between">
                 <div class="row">
@@ -15,7 +17,7 @@
                     </div>
                     <div class="col-9 d-flex align-items-center ml-2 mt-3">
                         <div class="d-flex flex-column">
-                            <label for="user-name">会員情報の編集</label>
+                            <label for="name-edit">会員情報の編集</label>
                             <p>アカウント情報の編集</p>
                         </div>
                     </div>
@@ -34,17 +36,17 @@
             <div class="d-flex justify-content-between">
                 <div class="row">
                     <div class="col-2 d-flex align-items-center">
-                        <i class="fas fa-archive fa-3x"></i>
+                        <i class="fas fa-users fa-3x"></i>
                     </div>
                     <div class="col-9 d-flex align-items-center ml-2 mt-3">
                         <div class="d-flex flex-column">
-                            <label for="user-name">注文履歴</label>
-                            <p>注文履歴を確認できます</p>
+                            <label for="team-edit">運営チーム情報の編集</label>
+                            <p>登録しているチーム情報を編集できます</p>
                         </div>
                     </div>
                 </div>
                 <div class="d-flex align-items-center">
-                    <a href="{{route('mypage')}}">
+                    <a href="">
                         <i class="fas fa-chevron-right fa-2x"></i>
                     </a>
                 </div>
@@ -57,17 +59,39 @@
             <div class="d-flex justify-content-between">
                 <div class="row">
                     <div class="col-2 d-flex align-items-center">
-                        <i class="fas fa-map-marked fa-3x"></i>
+                        <i class="fas fa-envelope fa-3x"></i>
                     </div>
                     <div class="col-9 d-flex align-items-center ml-3 mt-3">
                         <div class="d-flex flex-column">
-                            <label for="user-name">お届け先の変更</label>
-                            <p>登録住所の変更</p>
+                            <label for="messeage">メッセージ</label>
+                            <p>メッセージのやり取りができます</p>
                         </div>
                     </div>
                 </div>
                 <div class="d-flex align-items-center">
-                    <a href="{{route('mypage.edit_address')}}">
+                <a href="#">
+                        <i class="fas fa-chevron-right fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+                <hr>
+
+                <div class="container">
+            <div class="d-flex justify-content-between">
+                <div class="row">
+                    <div class="col-2 d-flex align-items-center">
+                        <i class="fas fa-history fa-3x"></i>
+                    </div>
+                    <div class="col-9 d-flex align-items-center ml-3 mt-3">
+                        <div class="d-flex flex-column">
+                            <label for="history">閲覧履歴</label>
+                            <p>閲覧したチームを確認できます</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <a href="#">
                         <i class="fas fa-chevron-right fa-2x"></i>
                     </a>
                 </div>
@@ -89,7 +113,7 @@
                     </div>
                 </div>
                 <div class="d-flex align-items-center">
-                    <a href="{{ route('mypage.edit_password') }}">
+                <a href="{{route('mypage.edit_password')}}">
                         <i class="fas fa-chevron-right fa-2x"></i>
                     </a>
                 </div>

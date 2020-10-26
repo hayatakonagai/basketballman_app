@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
+use Illuminate\Support\Facades\Storage;
 class RegisterController extends Controller
 {
     /*
@@ -61,6 +61,7 @@ class RegisterController extends Controller
             'carrer' => ['required'],
             'acievement' => ['nullable','max:255'],
             'appeal' => ['nullable','max:255'],
+            'image' =>['nullable','file','image','max:2048']
         ]);
     }
 
@@ -70,20 +71,6 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
     
-*    protected function create(array $data)
-*   {
-*        return User::create([
-*            'name' => $data['name'],
-*            'email' => $data['email'],
-*            'postal_code' => ['required', 'string'],
-*            'address' => ['required', 'string'],
-*            'phone' => ['required', 'string'],
-*            'password' => Hash::make($data['password']),
-*        ]);
-*    }
-     */
-
-     /**
  * Create a new user instance after a valid registration.
  *
  * @param  array  $data
@@ -104,6 +91,11 @@ protected function create(array $data)
         'carrer' => $data['carrer'],
         'acievement' => $data['acievement'],
         'appeal' => $data['appeal'],
+        'image' => $data['image']
     ]);
+    $carrer = '';
+    if (isset($data->carrer)) {
+       $carrer = implode(",",$data->carrer);
+   } 
 }
 }

@@ -39,6 +39,11 @@
                </a>
            </li>
              <li class="nav-item mr-5">
+               <a class="nav-link" href="{{ route('teams.index') }}">
+                   <i class="fas fa-users mr-1"></i><label>チーム一覧</label>
+               </a>
+           </li>
+             <li class="nav-item mr-5">
               <a class="nav-link" href="{{ route('mypage.favorite') }}">
                 <i class="far fa-heart"></i>
               </a>

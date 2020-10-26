@@ -3,10 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\Team;
+use App\User;
 
 class TeamRegisterController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +21,8 @@ class TeamRegisterController extends Controller
      */
     public function index()
     {
-        return view('teams.index');
+        $teams = Team::orderBy('updated_at', 'desc')->get();
+        return view('teams.index',compact('teams'));
     }
 
     /**
@@ -24,7 +32,8 @@ class TeamRegisterController extends Controller
      */
     public function create()
     {
-        return view('teams.create');
+        $user = Auth::user();
+        return view('teams.create',compact('user'));
     }
 
     /**
@@ -35,29 +44,54 @@ class TeamRegisterController extends Controller
      */
     public function store(Request $request)
     {
-            return Team::create([
-                'name' => $request['name'],
-                'level' => $request['level'],
-                'goal' => $request['goal'],
-                'where' => $request['where'],
-                'where_city' => $request['where_city'],             
-                'where_detail' => $request['where_detail'],
-                'frequency' => $request['frequency'],
-                'people' => $request['people'],
-                'wanted' => $request['wanted'],
-                'description' => $request['description']
-            ]);
+        $this->validate($request,[
+        'name' =>'required|max:255',
+        'status' => 'required',
+        'level' =>'required',
+        'goal' => 'required|max:255',
+        'where' =>'required',
+        'where_city' =>'required',
+        'where_detail' =>'nullable',
+        'frequency' =>'required',
+        'people' =>'nullable',
+        'wanted' =>'required',
+        'description' =>'required',
+        'image'=>'file|image|max:2048|nullable'
+        ]);
+
+        $team= new Team;
+        $user = Auth::user();
+        $team->status =$request->status;
+        $team->name = $request->name;
+        $team->level = $request->level;
+        $team->goal = $request->goal;
+        $team->where = $request->where;
+        $team->where_city = $request->where_city;
+        $team->where_detail = $request->where_detail;
+        $team->frequency = $request->frequency;
+        $team->people = $request->people;
+        $team->wanted = $request->wanted;
+        $team->description = $request->description;
+        $team->user_id = $user->id;
+        if ($request->file('image') !== null) {
+                $image = $request->file('image')->store('public/team');
+                $team->image = basename($image);
+            } else {
+                $team->image = '';
+            }
+        $team->save();
+        return redirect('/teams');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Team  $teams
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Team $team)
     {
-        //
+        return view('teams.show',compact('team'));
     }
 
     /**
@@ -66,9 +100,10 @@ class TeamRegisterController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Team $team)
     {
-        //
+        $user = Auth::user();
+        return view('teams.edit',compact('team','user'));
     }
 
     /**
@@ -78,9 +113,45 @@ class TeamRegisterController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Team $team)
     {
-        //
+        $this->validate($request,[
+            'name' =>'required|max:255',
+            'level' =>'required',
+            'goal' => 'required|max:255',
+            'where' =>'required',
+            'where_city' =>'required',
+            'where_detail' =>'nullable',
+            'frequency' =>'required',
+            'people' =>'nullable',
+            'wanted' =>'required',
+            'description' =>'required',
+            'image'=>'file|image|max:2048|nullable'
+            ]);
+    
+            $user = Auth::user();
+            $team->status =$request->status;
+            $team->name = $request->name;
+            $team->level = $request->level;
+            $team->goal = $request->goal;
+            $team->where = $request->where;
+            $team->where_city = $request->where_city;
+            $team->where_detail = $request->where_detail;
+            $team->frequency = $request->frequency;
+            $team->people = $request->people;
+            $team->wanted = $request->wanted;
+            $team->description = $request->description;
+            $team->user_id = $user->id;
+            if($request -> hasFile('image')){
+               $image = $request->file('image')->store('public/team');
+               $team->image = basename($image);
+                } else {
+                        $team->image = '';
+                        }
+ 
+            $team->update();
+            return redirect('/teams');
+        
     }
 
     /**

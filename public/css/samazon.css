@@ -153,6 +153,19 @@ label {
   background-color: #0fbe9f;
 }
 
+.samazon-edit-button {
+  font-family: YuGo;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #b2b2b2;
+  color: #ffffff;
+  background-color: #0fbe9f;
+}
+
 .samazon-login-text {
   font-family: YuGo;
   font-size: 14px;
@@ -216,4 +229,10 @@ label {
 .samazon-favorite-add-cart {
   border-radius: 2px;
   background-color: #0fbe9f;
+}
+dt{
+  float:left;
+}
+dd{
+  margin-left:80px;
 }

@@ -3,16 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use App\Product;
+use App\Team;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
    public function mypage()
    {
        $user = Auth::user();
-
+//     return var_dump($user->name);
+       //$id = Auth::id();
+       //$user = User::where('id','$id');
+       //$teams = Team::where('user_id', $id) ;//$idよるチーム情報を取得
        return view('users.mypage', compact('user'));
    }
     /**
@@ -37,21 +44,44 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-         $user = Auth::user();
-         $user->name = $request->input('name') ? $request->input('name') : $user->name;
-         $user->email = $request->input('email') ? $request->input('email') : $user->email;
-         $user->postal_code = $request->input('postal_code') ? $request->input('postal_code') : $user->postal_code;
-         $user->address = $request->input('address') ? $request->input('address') : $user->address;
-         $user->phone = $request->input('phone') ? $request->input('phone') : $user->phone;
-         $user->update();
-         return redirect()->route('mypage');
-    }
-        public function edit_address()
-    {
+        $this->validate($request,[
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'gender' => ['required'],
+            'height' => ['required','integer'],
+            'weight' => ['nullable','integer'],
+            'age' => ['required','integer'],
+            'where' => ['required'],
+            'position' => ['required'],
+            'carrer' => ['required'],
+            'acievement' => ['nullable','max:255'],
+            'appeal' => ['nullable','max:255'],
+            'image'=>['file','image','max:2048','nullable']
+        ]);
+        
         $user = Auth::user();
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->gender=$request->gender;
+        $user->height=$request->height;
+        $user->weight=$request->weight;
+        $user->age=$request->age;
+        $user->where=$request->where;
+        $user->position =$request->position;
+        $user->carrer=implode(',',$request->carrer);
+        $user->acievement=$request->acievement;
+        $user->appeal=$request->appeal;
+        if ($request->file('image') !== null) {
+            $image = $request->file('image')->store('public/user');
+            $user->image = basename($image);
+        } else {
+            $user->image = '';
+        }
+        $user->update();
+        return redirect()->route('mypage');
 
-        return view('users.edit_address', compact('user'));
     }
+       
         public function edit_password()
         {
             return view('users.edit_password');
