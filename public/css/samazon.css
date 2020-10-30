@@ -236,3 +236,10 @@ dt{
 dd{
   margin-left:80px;
 }
+.main-list{
+  border:1px solid #CCCCCC;
+  display:block;
+  padding: 15px;
+  background: #FFFAF4;
+  margin-bottom:30px;
+}

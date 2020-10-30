@@ -8,7 +8,7 @@
         @if ($user->image !== "")
                <img src="{{ asset('storage/user/'.$user->image) }}" class="h-10 img-fluid">
 
-               @endif
+        @endif
         <div class="container">
             <div class="d-flex justify-content-between">
                 <div class="row">

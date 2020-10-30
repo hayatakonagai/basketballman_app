@@ -4,7 +4,7 @@
     <label for="name" class="col-md-5 col-form-label text-md-left">氏名<span class="ml-1 samazon-require-input-label"><span class="samazon-require-input-label-text">必須</span></span></label>
 
     <div class="col-md-7">
-        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror samazon-login-input" name="name" value="{{ !empty($user->name) ?  $user->name : old('name')}}"  required autocomplete="name" autofocus placeholder="バスケ 太郎">
+        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror samazon-login-input" name="name" value="{{old('name', !empty($user->name) ?  $user->name : '')}}"  required autocomplete="name" autofocus placeholder="バスケ 太郎">
 
         @error('name')
         @foreach ($errors->get('name') as $error)
@@ -22,7 +22,7 @@
 
     <div class="col-md-7">
         @php
-          $selectedGender = !empty($user) ?  $user->gender : old('gender');
+          $selectedGender = old('gender', !empty($user->gender) ?  $user->gender : '');    
         @endphp
         <select id="gender" class="form-control @error('gender') is-invalid @enderror samazon-login-input" name="gender">
             <option value="" style="display: none;">選択してください</option>
@@ -44,7 +44,7 @@
     <label for="height" class="col-md-5 col-form-label text-md-left">身長<span class="ml-1 samazon-require-input-label"><span class="samazon-require-input-label-text">必須</span></span></label>
 
     <div class="col-md-7">
-        <input id="height" type="number" class="form-control @error('height') is-invalid @enderror samazon-login-input" name="height" value="{{ !empty($user) ?  $user->height :  old('height') }}"  placeholder="cm">
+        <input id="height" type="number" class="form-control @error('height') is-invalid @enderror samazon-login-input" name="height" value="{{old('height', !empty($user->height) ?  $user->height : '')}}"  placeholder="cm">
 
         @error('height')
         @foreach ($errors->get('height') as $error)
@@ -60,7 +60,7 @@
     <label for="weight" class="col-md-5 col-form-label text-md-left">体重<span class="ml-1 samazon-nullable-input-label"><span class="samazon-nullable-input-label-text">任意</span></span></label>
 
     <div class="col-md-7">
-        <input id="weight" type="number" class="form-control @error('weight') is-invalid @enderror samazon-login-input" name="weight" value="{{ !empty($user->weight) ? $user->weight : old('weight')}}"  placeholder="kg">
+        <input id="weight" type="number" class="form-control @error('weight') is-invalid @enderror samazon-login-input" name="weight" value="{{old('weight', !empty($user->weight) ?  $user->weight : '')}}"  placeholder="kg">
 
         @error('weight')
         @foreach ($errors->get('weight') as $error)
@@ -76,7 +76,7 @@
     <label for="age" class="col-md-5 col-form-label text-md-left">年齢<span class="ml-1 samazon-require-input-label"><span class="samazon-require-input-label-text">必須</span></span></label>
 
     <div class="col-md-7">
-        <input id="age" type="number" class="form-control @error('age') is-invalid @enderror samazon-login-input" name="age" value="{{ !empty($user->age) ?  $user->age :  old('age') }}" >
+        <input id="age" type="number" class="form-control @error('age') is-invalid @enderror samazon-login-input" name="age" value="{{old('age', !empty($user->age) ?  $user->age : '')}}" >
 
         @error('age')
         @foreach ($errors->get('age') as $error)
@@ -93,9 +93,9 @@
 
     <div class="col-md-7">
         @php
-          $selectedWhere = !empty($user->where) ?  $user->where : old('where');
+          $selectedWhere = old('where', !empty($user->where) ?  $user->where : '');    
         @endphp
-        <select id="where" class="form-control @error('where') is-invalid @enderror samazon-login-input" name="where" value="{{ old('where') }}">
+        <select id="where" class="form-control @error('where') is-invalid @enderror samazon-login-input" name="where">
         <option value="" style="display: none;">選択してください</option>
             @foreach(\App\Team::WHERE as $where)
              <option value="{{$where}}"  @if ($selectedWhere == $where) selected @endif>{{$where}}</option>
@@ -115,7 +115,7 @@
 
 <div class="form-group row">
     @php
-      $selectedPosition = !empty($user->position) ?  $user->position : old('position');
+      $selectedPosition = old('position', !empty($user->position) ?  $user->position : '');   
     @endphp
     <label for="position" class="col-md-5 col-form-label text-md-left">ポジション<span class="ml-1 samazon-require-input-label"><span class="samazon-require-input-label-text">必須</span></span></label>
 
@@ -138,7 +138,7 @@
 
 <div class="form-group row">
     @php
-      $selectedCarrer = !empty($user->carrer) ?  $user->carrer : old('carrer');
+      $selectedCarrer = old('carrer', !empty($user->carrer) ?  $user->carrer : '');  
       $selectedCarrer = explode(',',$selectedCarrer);
       $carrers = ['未経験','中学まで','高校まで','大学まで','クラブチーム','実業団'];
     @endphp
@@ -146,7 +146,7 @@
 
     <div class="col-md-7">
       @foreach($carrers as $carrer)
-        <label for="inexperienced"><input id="inexperienced" type="checkbox" class="form-check-inline @error('carrer') is-invalid @enderror samazon-login-input" name="carrer[]" value="{{$carrer}}" @if (in_array($carrer,$selectedCarrer)) checked @endif>{{$carrer}}</label>
+        <label><input type="checkbox" class="form-check-inline @error('carrer') is-invalid @enderror samazon-login-input" name="carrer[]" value="{{$carrer}}" @if (in_array($carrer,$selectedCarrer)) checked @endif>{{$carrer}}</label>
       @endforeach
 
         @error('carrer')
@@ -163,7 +163,7 @@
     <label for="acievement" class="col-md-5 col-form-label text-md-left">実績<span class="ml-1 samazon-nullable-input-label"><span class="samazon-nullable-input-label-text">任意</span></span></label>
 
     <div class="col-md-7">
-        <textarea id="acievement" rows='4' class="form-control @error('acievement') is-invalid @enderror samazon-login-input" name="acievement"  placeholder="インターハイ出場etc..">{{ !empty($user->acievement) ?  $user->acievement : old('acievement') }}</textarea>
+        <textarea id="acievement" rows='4' class="form-control @error('acievement') is-invalid @enderror samazon-login-input" name="acievement"  placeholder="インターハイ出場etc..">{{old('acievement', !empty($user->acievement) ?  $user->acievement : '')}}</textarea>
 
         @error('acievement')
         @foreach ($errors->get('acievement') as $error)
@@ -179,7 +179,7 @@
     <label for="appeal" class="col-md-5 col-form-label text-md-left">アピール<span class="ml-1 samazon-nullable-input-label"><span class="samazon-nullable-input-label-text">任意</span></span></label>
 
     <div class="col-md-7">
-        <textarea id="appeal" rows='4' class="form-control @error('appeal') is-invalid @enderror samazon-login-input" name="appeal">{{ !empty($user->appeal) ?  $user->appeal : old('appeal') }}</textarea>
+        <textarea id="appeal" rows='4' class="form-control @error('appeal') is-invalid @enderror samazon-login-input" name="appeal">{{old('appeal', !empty($user->appeal) ?  $user->appeal : '')}}</textarea>
 
         @error('appeal')
         @foreach ($errors->get('appeal') as $error)
@@ -196,6 +196,7 @@
 
     <div class="col-md-7">
         <input id="image" type="file" class="form-control-file @error('image') is-invalid @enderror samazon-login-input" name="image" value="{{ !empty($user->image) ?  $user->image : old('image')}}">
+  
         @error('image')
         @foreach ($errors->get('image') as $error)
         <span class="invalid-feedback" role="alert">
@@ -210,7 +211,7 @@
     <label for="email" class="col-md-5 col-form-label text-md-left">メールアドレス<span class="ml-1 samazon-require-input-label"><span class="samazon-require-input-label-text">必須</span></span></label>
 
     <div class="col-md-7">
-        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror samazon-login-input" name="email" value="{{ !empty($user->email) ? $user->email : old('email') }}"  required autocomplete="email" placeholder="basketball.gmail.com">
+        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror samazon-login-input" name="email" value="{{old('email', !empty($user->email) ?  $user->email : '')}}"  required autocomplete="email" placeholder="basketball.gmail.com">
 
         @error('email')
         @foreach ($errors->get('email') as $error)

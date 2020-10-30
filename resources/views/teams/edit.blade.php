@@ -17,7 +17,7 @@
 
             <div class="col-md-7">
             @php
-              $selectedStatus = !empty($team->status) ?  $team->status : old('status');
+              $selectedStatus = old('status', !empty($team->status) ?  $team->status : '');
             @endphp
               <select id="status" class="form-control @error('status') is-invalid @enderror samazon-login-input" name="status">
                   <option value="募集中" @if($selectedStatus == '募集中') selected @endif>募集中</option>

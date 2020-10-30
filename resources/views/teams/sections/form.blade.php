@@ -19,7 +19,7 @@
 
     <div class="col-md-7">
       @php
-        $selectedLevel = !empty($team->level) ?  $team->level : old('level');
+        $selectedLevel = old('level', !empty($team->level) ?  $team->level : '');      
       @endphp
         <select id="level" class="form-control @error('level') is-invalid @enderror samazon-login-input" name="level">
             <option value="" style="display: none;">選択してください</option>
@@ -39,7 +39,7 @@
     <label for="goal" class="col-md-5 col-form-label text-md-left">チームの目標<span class="ml-1 samazon-require-input-label"><span class="samazon-require-input-label-text">必須</span></span></label>
 
     <div class="col-md-7">
-        <textarea id="goal" type="text" class="form-control @error('goal') is-invalid @enderror samazon-login-input" name="goal"  required autocomplete="goal" autofocus placeholder="入力してください">{{ !empty($team->goal) ?  $team->goal : old('goal') }}</textarea>
+        <textarea id="goal" type="text" class="form-control @error('goal') is-invalid @enderror samazon-login-input" name="goal"  required autocomplete="goal" autofocus placeholder="入力してください">{{ old('goal', !empty($team->goal) ?  $team->goal : '') }}</textarea>
 
         @error('goal')
         <span class="invalid-feedback" role="alert">
@@ -54,9 +54,9 @@
 
     <div class="col-md-7">
       @php
-        $selectedWhere = !empty($team->where) ?  $team->where : old('where');
+        $selectedWhere = old('where', !empty($team->where) ?  $team->where : '');      ;
       @endphp
-        <select id="where" class="form-control @error('where') is-invalid @enderror samazon-login-input" name="where" value="{{ old('where') }}">
+        <select id="where" class="form-control @error('where') is-invalid @enderror samazon-login-input" name="where">
             <option value="" style="display: none;">選択してください</option>
             @foreach(\App\Team::WHERE as $where)
              <option value="{{$where}}" @if ($selectedWhere == $where) selected @endif>{{$where}}</option>
@@ -74,8 +74,8 @@
     <label for="where_city" class="col-md-5 col-form-label text-md-left">活動場所２<span class="ml-1 samazon-require-input-label"><span class="samazon-require-input-label-text">必須</span></span></label>
 
     <div class="col-md-7">
-        <input id="where_city" type="text" class="form-control @error('where_city') is-invalid @enderror samazon-login-input" name="where_city" value="{{ !empty($team->where_city) ?  $team->where_city : old('where_city')}}"  placeholder="市区町村">
-
+        <input id="where_city" type="text" class="form-control @error('where_city') is-invalid @enderror samazon-login-input" name="where_city" value="{{ old('where_city', !empty($team->where_city) ?  $team->where_city : '') }}"  placeholder="市区町村">
+        
         @error('where_city')
         <span class="invalid-feedback" role="alert">
             <strong>入力してください</strong>
@@ -88,7 +88,7 @@
     <label for="where_detail" class="col-md-5 col-form-label text-md-left">活動場所３<span class="ml-1 samazon-nullable-input-label"><span class="samazon-nullable-input-label-text">任意</span></span></label>
 
     <div class="col-md-7">
-        <input id="where_detail" type="text" class="form-control @error('where_detail') is-invalid @enderror samazon-login-input" name="where_detail" value="{{ !empty($team->where_detail) ?  $team->where_detail : old('where_detail')}}"  placeholder="○○体育館">
+        <input id="where_detail" type="text" class="form-control @error('where_detail') is-invalid @enderror samazon-login-input" name="where_detail" value="{{ old('where_detail', !empty($team->where_detail) ?  $team->where_detail : '') }}"  placeholder="○○体育館">
 
         @error('where_detail')
         <span class="invalid-feedback" role="alert">
@@ -103,7 +103,7 @@
 
     <div class="col-md-7">
       @php
-        $selectedFrequency = !empty($team->frequency) ?  $team->frequency : old('frequency');
+        $selectedFrequency = old('frequency', !empty($team->frequency) ?  $team->frequency : '');      ;
       @endphp
         <select id="frequency" class="form-control @error('frequency') is-invalid @enderror samazon-login-input" name="frequency">
             <option value="" style="display: none;">選択してください</option>
@@ -124,7 +124,7 @@
     <label for="people" class="col-md-5 col-form-label text-md-left">人数<span class="ml-1 samazon-nullable-input-label"><span class="samazon-nullable-input-label-text">任意</span></span></label>
 
     <div class="col-md-7">
-        <input id="people" type="text" class="form-control" name="people" value="{{ !empty($team->people) ?  $team->people : old('people')}}">
+        <input id="people" type="text" class="form-control" name="people" value="{{ old('people', !empty($team->people) ?  $team->people : '') }}">
     </div>
 </div>
 
@@ -132,7 +132,7 @@
     <label for="wanted" class="col-md-5 col-form-label text-md-left">こんな人が欲しい<span class="ml-1 samazon-require-input-label"><span class="samazon-require-input-label-text">必須</span></span></label>
 
     <div class="col-md-7">
-        <textarea id="wanted" rows='4' class="form-control @error('wanted') is-invalid @enderror samazon-login-input" name="wanted">{{ !empty($team->wanted) ?  $team->wanted : old('wanted') }}</textarea>
+        <textarea id="wanted" rows='4' class="form-control @error('wanted') is-invalid @enderror samazon-login-input" name="wanted">{{ old('wanted', !empty($team->wanted) ?  $team->wanted : '') }}</textarea>
 
         @error('wanted')
         <span class="invalid-feedback" role="alert">
@@ -146,7 +146,7 @@
     <label for="description" class="col-md-5 col-form-label text-md-left">チームの詳細<span class="ml-1 samazon-require-input-label"><span class="samazon-require-input-label-text">必須</span></span></label>
 
     <div class="col-md-7">
-        <textarea id="description" rows='4' class="form-control @error('description') is-invalid @enderror samazon-login-input" name="description" >{{ !empty($team->description) ?  $team->description : old('description') }}</textarea>
+        <textarea id="description" rows='4' class="form-control @error('description') is-invalid @enderror samazon-login-input" name="description" >{{ old('description', !empty($team->description) ?  $team->description : '') }}</textarea>
 
         @error('description')
         <span class="invalid-feedback" role="alert">

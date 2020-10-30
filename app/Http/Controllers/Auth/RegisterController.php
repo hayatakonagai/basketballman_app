@@ -91,11 +91,8 @@ protected function create(array $data)
         'carrer' => $data['carrer'],
         'acievement' => $data['acievement'],
         'appeal' => $data['appeal'],
-        'image' => $data['image']
+        'image' => $data['image'],
+
     ]);
-    $carrer = '';
-    if (isset($data->carrer)) {
-       $carrer = implode(",",$data->carrer);
-   } 
 }
 }

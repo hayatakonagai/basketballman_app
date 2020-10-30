@@ -20,18 +20,19 @@
             <!-- Authentication Links -->
             @guest
             <li class="nav-item mr-5">
-                <a class="nav-link" href="{{ route('register') }}"><label>新規登録</label></a>
+                <a class="nav-link" href="{{ route('register') }}">
+                <i class="fas fa-external-link-alt"></i><label>新規登録</label></a>
             </li>
             <li class="nav-item mr-5">
-                <a class="nav-link" href="{{ route('login') }}"><label>ログイン</label></a>
-            </li>
-            <hr>
-            <li class="nav-item mr-5">
-                <a class="nav-link" href="{{ route('login') }}"><i class="far fa-heart"></i></a>
+                <a class="nav-link" href="{{ route('login') }}">
+                    <i class="fas fa-sign-in-alt"></i><label>ログイン</label>
+                </a>
             </li>
             <li class="nav-item mr-5">
-                <a class="nav-link" href="{{ route('login') }}"><i class="fas fa-shopping-cart"></i></a>
-            </li>
+               <a class="nav-link" href="{{ route('teams.index') }}">
+                   <i class="fas fa-users mr-1"></i><label>チーム一覧</label>
+               </a>
+             </li>
             @else
              <li class="nav-item mr-5">
                <a class="nav-link" href="{{ route('mypage') }}">
@@ -42,12 +43,8 @@
                <a class="nav-link" href="{{ route('teams.index') }}">
                    <i class="fas fa-users mr-1"></i><label>チーム一覧</label>
                </a>
-           </li>
-             <li class="nav-item mr-5">
-              <a class="nav-link" href="{{ route('mypage.favorite') }}">
-                <i class="far fa-heart"></i>
-              </a>
-          </li>
+             </li>
+
             @endguest
         </ul>
     </div>
