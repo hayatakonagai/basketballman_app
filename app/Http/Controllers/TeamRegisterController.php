@@ -22,7 +22,8 @@ class TeamRegisterController extends Controller
     public function index()
     {
         $teams = Team::orderBy('updated_at', 'desc')->get();
-        return view('teams.index',compact('teams'));
+        $prefs = config('array');
+        return view('teams.index',compact('teams','prefs'));
     }
 
     /**
@@ -74,7 +75,12 @@ class TeamRegisterController extends Controller
         $team->description = $request->description;
         $team->user_id = $user->id;
         if ($request->file('image') !== null) {
-                $image = $request->file('image')->store('public/team');
+                if (config('const.env') == "local"){
+                    $image = $request->file('image')->store('public/team');
+                }
+                else if(config('const.env') == "production"){
+                    $team->image = Storage::disk('s3')->putFile('public/team', $request->file('image'), 'public');
+                }
                 $team->image = basename($image);
             } else {
                 $team->image = '';

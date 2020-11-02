@@ -1,7 +1,13 @@
 @extends('layouts.app')
 @section('content')
   <div class="col-4">
-      <img src="{{ asset('storage/team/'.$team->image) }}" class="h-10 img-fluid">
+  @if(config('const.env') == "local" && $team->image !== "")
+    <img src="{{ asset('storage/team/'.$team->image) }}" class="h-10 img-fluid">
+  @endif
+  @if (config('const.env') == "production" && $team->image !== "")
+    <img src="{{ Storage::disk('s3')->url($team->image) }}" class="h-10 img-fluid">
+  @endif
+  
 </div>
 <table class="table">
   <thead>

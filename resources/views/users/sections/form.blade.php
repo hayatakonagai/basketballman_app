@@ -139,7 +139,9 @@
 <div class="form-group row">
     @php
       $selectedCarrer = old('carrer', !empty($user->carrer) ?  $user->carrer : '');  
-      $selectedCarrer = explode(',',$selectedCarrer);
+      if(is_string($selectedCarrer)){
+           $selectedCarrer = explode(',',$selectedCarrer);
+        }
       $carrers = ['未経験','中学まで','高校まで','大学まで','クラブチーム','実業団'];
     @endphp
     <label for="carrer" class="col-md-5 col-form-label text-md-left">バスケ経験<span class="ml-1 samazon-require-input-label"><span class="samazon-require-input-label-text">必須</span></span></label>
@@ -196,7 +198,7 @@
 
     <div class="col-md-7">
         <input id="image" type="file" class="form-control-file @error('image') is-invalid @enderror samazon-login-input" name="image" value="{{ !empty($user->image) ?  $user->image : old('image')}}">
-  
+
         @error('image')
         @foreach ($errors->get('image') as $error)
         <span class="invalid-feedback" role="alert">

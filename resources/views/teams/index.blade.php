@@ -1,7 +1,23 @@
 @extends('layouts.app')
 @section('content')
-
 <div class="container">
+{{--検索機能実装中
+    <div class="form-group row">
+        <form method="POST" action="{{route('teams.index')}}" enctype="multipart/form-data">
+            <label for="where_pref" class="col-md-5 col-form-label text-md-left">絞り込み：都道府県</label>
+            <div class="col-md-7">
+                <select id="where_pref" class="form-control" name="where_pref">
+                    <option value="" style="display: none;">選択してください</option>
+                    @foreach($prefs as $pref)
+                    <option value="{{$pref}}">{{$pref}}</option>
+                    @endforeach         
+                </select>
+            </div>
+            <input type="submit" value="検索" class="btn btn-info">
+        </form>
+    </div>
+--}}
+
     @auth
     <div class="row justify-content-center">
         <div class="col-md-5">

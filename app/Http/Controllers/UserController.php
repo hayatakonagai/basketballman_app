@@ -72,11 +72,23 @@ class UserController extends Controller
         $user->acievement=$request->acievement;
         $user->appeal=$request->appeal;
         if ($request->file('image') !== null) {
+            if (config('const.env') == "local"){
+                $image = $request->file('image')->store('public/user');
+            }
+            else if(config('const.env') == "production"){
+                $user->image = Storage::disk('s3')->putFile('public/user', $request->file('image'), 'public');
+            }
+            $user->image = basename($image);
+        } else {
+            $user->image = '';
+        }
+        /*if ($request->file('image') !== null) {
             $image = $request->file('image')->store('public/user');
             $user->image = basename($image);
         } else {
             $user->image = '';
         }
+        */
         $user->update();
         return redirect()->route('mypage');
 

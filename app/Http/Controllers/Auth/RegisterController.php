@@ -77,7 +77,16 @@ class RegisterController extends Controller
  * @return \App\User
  */
 protected function create(array $data)
-{
+{   
+    if ($data['image'] !== null) {
+            if(config('const.env')=="local"){
+                $image = $data['image']->store('public/user');
+            }
+            else if(config('const.env') == "production"){
+                $data['image'] = Storage::disk('s3')->putFile('public/user', $data['image'], 'public');
+            }
+        $data['image'] = basename($image);
+        }
     return User::create([
         'name' => $data['name'],
         'email' => $data['email'],
@@ -88,11 +97,11 @@ protected function create(array $data)
         'age' => $data['age'],
         'where' => $data['where'],
         'position' => $data['position'],
-        'carrer' => $data['carrer'],
+        'carrer' => implode(',',$data['carrer']),
         'acievement' => $data['acievement'],
         'appeal' => $data['appeal'],
         'image' => $data['image'],
-
     ]);
+
 }
 }

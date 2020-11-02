@@ -5,10 +5,12 @@
     <div class="w-50">
         <h1>マイページ</h1>
         <hr>
-        @if ($user->image !== "")
+            @if (config('const.env') == "local" && $user->image !== "")
                <img src="{{ asset('storage/user/'.$user->image) }}" class="h-10 img-fluid">
-
-        @endif
+            @endif
+            @if (config('const.env') == "production" && $user->image !== "")
+                <img src="{{ Storage::disk('s3')->url($user->image) }}" class="h-10 img-fluid">
+            @endif
         <div class="container">
             <div class="d-flex justify-content-between">
                 <div class="row">
