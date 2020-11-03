@@ -77,11 +77,11 @@ class TeamRegisterController extends Controller
         if ($request->file('image') !== null) {
                 if (config('const.env') == "local"){
                     $image = $request->file('image')->store('public/team');
+                    $team->image = basename($image);
                 }
                 else if(config('const.env') == "production"){
                     $team->image = Storage::disk('s3')->putFile('public/team', $request->file('image'), 'public');
                 }
-                $team->image = basename($image);
             } else {
                 $team->image = '';
             }
