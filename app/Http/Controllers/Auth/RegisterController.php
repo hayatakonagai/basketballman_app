@@ -81,11 +81,11 @@ protected function create(array $data)
     if ($data['image'] !== null) {
             if(config('const.env')=="local"){
                 $image = $data['image']->store('public/user');
+                $data['image'] = basename($image);
             }
             else if(config('const.env') == "production"){
                 $data['image'] = Storage::disk('s3')->putFile('public/user', $data['image'], 'public');
             }
-        $data['image'] = basename($image);
         }
     return User::create([
         'name' => $data['name'],
