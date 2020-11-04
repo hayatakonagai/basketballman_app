@@ -148,6 +148,20 @@ class TeamRegisterController extends Controller
             $team->wanted = $request->wanted;
             $team->description = $request->description;
             $team->user_id = $user->id;
+            if ($request->file('image') !== null) {
+                if (config('const.env') == "local"){
+                    $image = $request->file('image')->store('public/team');
+                    $team->image = basename($image);
+                }
+                else if(config('const.env') == "production"){
+                    $team->image = Storage::disk('s3')->putFile('public/team', $request->file('image'), 'public');
+                }
+            } else {
+                $team->image = '';
+            }
+            $team->update();
+            return redirect('/teams');
+            /*
             if($request -> hasFile('image')){
                $image = $request->file('image')->store('public/team');
                $team->image = basename($image);
@@ -157,7 +171,7 @@ class TeamRegisterController extends Controller
  
             $team->update();
             return redirect('/teams');
-        
+            */
     }
 
     /**
