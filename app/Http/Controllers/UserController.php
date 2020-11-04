@@ -6,7 +6,7 @@ use App\User;
 use App\Team;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Storage;
 class UserController extends Controller
 {
     public function __construct()
