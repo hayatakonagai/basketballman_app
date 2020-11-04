@@ -46,6 +46,7 @@
                     </td>
                 </div>
             @endforeach
+            {{ $teams->links() }}
         </div>
     </div>
 </div>

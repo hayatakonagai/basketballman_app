@@ -22,6 +22,7 @@ class TeamRegisterController extends Controller
     public function index()
     {
         $teams = Team::orderBy('updated_at', 'desc')->get();
+        $teams = Team::paginate(3);
         $prefs = config('array');
         return view('teams.index',compact('teams','prefs'));
     }
