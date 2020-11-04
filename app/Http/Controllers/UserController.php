@@ -16,10 +16,6 @@ class UserController extends Controller
    public function mypage()
    {
        $user = Auth::user();
-//     return var_dump($user->name);
-       //$id = Auth::id();
-       //$user = User::where('id','$id');
-       //$teams = Team::where('user_id', $id) ;//$idよるチーム情報を取得
        return view('users.mypage', compact('user'));
    }
     /**

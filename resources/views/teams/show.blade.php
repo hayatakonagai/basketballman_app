@@ -59,7 +59,9 @@
     </tr>
   </tbody>
 </table>
-
-<button type=“button” class= "btn samazon-edit-button w-20" onclick="location.href='/teams/{{$team->id}}/edit'">編集する</button>
-
+@auth
+  @if ($team->user_id === $user->id)
+  <button type=“button” class= "btn samazon-edit-button w-20" onclick="location.href='/teams/{{$team->id}}/edit'">編集する</button>
+  @endif
+@endauth
 @endsection

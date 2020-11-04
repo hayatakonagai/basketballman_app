@@ -21,8 +21,7 @@ class TeamRegisterController extends Controller
      */
     public function index()
     {
-        $teams = Team::orderBy('updated_at', 'desc')->get();
-        $teams = Team::paginate(3);
+        $teams = Team::orderBy('updated_at', 'desc')->paginate(3);
         $prefs = config('array');
         return view('teams.index',compact('teams','prefs'));
     }
@@ -96,9 +95,10 @@ class TeamRegisterController extends Controller
      * @param  \App\Team  $teams
      * @return \Illuminate\Http\Response
      */
-    public function show(Team $team)
+    public function show(Team $team , User $user)
     {
-        return view('teams.show',compact('team'));
+        $user = Auth::user();
+        return view('teams.show',compact('team','user'));
     }
 
     /**
