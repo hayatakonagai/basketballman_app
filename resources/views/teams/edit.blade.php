@@ -35,9 +35,7 @@
           @include('teams.sections.form')
 
           <div class="form-group">
-            <button type="submit" class="btn samazon-submit-button w-100">
-              変更する
-            </button>
+            <button type="submit" class="btn samazon-submit-button w-100">変更する</button>
           </div>
        </form>
     </div>

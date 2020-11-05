@@ -181,8 +181,9 @@ class TeamRegisterController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Team $team)
     {
-        //
+             $team->delete();
+             return redirect()->route('teams.index');
     }
 }

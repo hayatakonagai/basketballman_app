@@ -61,7 +61,14 @@
 </table>
 @auth
   @if ($team->user_id === $user->id)
-  <button type=“button” class= "btn samazon-edit-button w-20" onclick="location.href='/teams/{{$team->id}}/edit'">編集する</button>
+    <div>
+      <button type=“button” class= "btn samazon-edit-button w-20" onclick="location.href='/teams/{{$team->id}}/edit'">編集する</button>
+    </div>
+    <form action="/teams/{{ $team->id }}" method="POST" onsubmit="if(confirm('本当に削除してよろしいですか？')) { return true } else {return false };">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <button type="submit">Delete</button>
+    </form> 
   @endif
 @endauth
 @endsection

@@ -86,7 +86,7 @@ protected function create(array $data)
             else if(config('const.env') == "production"){
                 $data['image'] = Storage::disk('s3')->putFile('public/user', $data['image'], 'public');
             }
-        }
+    }
     return User::create([
         'name' => $data['name'],
         'email' => $data['email'],
