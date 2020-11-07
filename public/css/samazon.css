@@ -244,4 +244,10 @@ dd{
   padding: 15px;
   background: #FFFAF4;
   margin-bottom:30px;
+  position:relative;
+}
+.team-index-img{
+  position:absolute;
+  right:10px;
+  top:40px;
 }
