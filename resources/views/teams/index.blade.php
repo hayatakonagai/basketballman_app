@@ -38,10 +38,10 @@
                         <dt>更新日</dt><dd>{{$team->updated_at}}</dd>
                         <div class ="team-index-img">
                             @if (config('const.env') == "local" && $team->image !== "")
-                                <img src="{{ asset('storage/team/'.$team->image) }}" class="h-10 img-fluid" style=width:150px>
+                                <img src="{{ asset('storage/team/'.$team->image) }}" style=width:150px>
                             @endif
                             @if (config('const.env') == "production" && $team->image !== "")
-                                <img src="{{ Storage::disk('s3')->url($team->image) }}" class="h-10 img-fluid" style=width:150px>
+                                <img src="{{ Storage::disk('s3')->url($team->image) }}"  style=width:150px>
                             @endif
                         </div>
                 </div>
