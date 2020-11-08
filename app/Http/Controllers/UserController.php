@@ -13,10 +13,10 @@ class UserController extends Controller
     {
         $this->middleware('auth');
     }
-   public function mypage()
+   public function mypage(Team $team)
    {
        $user = Auth::user();
-       return view('users.mypage', compact('user'));
+       return view('users.mypage', compact('user','team'));
    }
     /**
      * Show the form for editing the specified resource.

@@ -77,12 +77,17 @@
 </div>
 
 @auth
+<div class="row justify-content-center">
+  <div class="col-5 text-center">
+    <button type="button" class="btn samazon-submit-button"onclick="location.href='mailto:{{$team->user->email}}?subject=【{{config('app.name')}}】応募フォーム&body=【氏名】{{$user->name}} %0D%0A 【性別】{{$user->gender}}%0D%0A 【身長】{{$user->height}}%0D%0A 【年齢】{{$user->age}}%0D%0A 【ポジション】{{$user->position}}%0D%0A【経験】{{$user->carrer}}%0D%0A【実績】{{$user->acievement}}%0D%0A 【アピール】{{$user->appeal}}%0D%0A 【チーム代表者へメッセージ】'">
+    <i class="fas fa-envelope fa-3x"></i><h5>チーム代表者へメールを送る</h5></a>
+    </button>
+  </div>
+</div>
   @if ($team->user_id === $user->id)
     <div class="row justify-content-center">
       <div class="col-5">
-      <button type="button" class="btn-block btn-primary"onclick="location.href='mailto:{{$team->user->email}}?subject=【{{config('app.name')}}】応募フォーム&body=【氏名】{{$team->user->name}} %0D%0A 【性別】{{$team->user->gender}}%0D%0A 【身長】{{$team->user->height}}%0D%0A 【年齢】{{$team->user->age}}%0D%0A 【ポジション】{{$team->user->position}}%0D%0A【経験】{{$team->user->carrer}}%0D%0A【実績】{{$team->user->acievement}}%0D%0A 【アピール】{{$team->user->appeal}}%0D%0A 【チーム代表者へメッセージ】'">
-        <i class="fas fa-envelope fa-3x"></i><h5>チーム代表者へメールを送る</h5></a>
-      </button>
+
         <button type=“button” class= "btn samazon-edit-button btn-block" onclick="location.href='/teams/{{$team->id}}/edit'">編集する</button>
         <form action="/teams/{{ $team->id }}" method="POST" onsubmit="if(confirm('本当に削除してよろしいですか？')) { return true } else {return false };">
           <input type="hidden" name="_method" value="DELETE">
