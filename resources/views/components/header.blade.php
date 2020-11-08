@@ -33,7 +33,8 @@
                    <i class="fas fa-users mr-1"></i><label>チーム一覧</label>
                </a>
              </li>
-            @else
+            @endguest
+            @auth
              <li class="nav-item mr-5">
                <a class="nav-link" href="{{ route('mypage') }}">
                    <i class="fas fa-user mr-1"></i><label>マイページ</label>
@@ -44,8 +45,8 @@
                    <i class="fas fa-users mr-1"></i><label>チーム一覧</label>
                </a>
              </li>
-
-            @endguest
+            @endauth
+            
         </ul>
     </div>
 </nav>

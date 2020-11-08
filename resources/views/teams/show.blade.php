@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
 <div class="row justify-content-center">
-  <div class="col-4">
+  <div class="col-4 bg-white">
     @if(config('const.env') == "local" && $team->image !== "")
-      <img src="{{ asset('storage/team/'.$team->image) }}" class="h-10 img-fluid">
+      <img src="{{ asset('storage/team/'.$team->image) }}" class="h-10 img-fluid";>
     @endif
     @if (config('const.env') == "production" && $team->image !== "")
       <img src="{{ Storage::disk('s3')->url($team->image) }}" class="h-10 img-fluid">
@@ -64,6 +64,7 @@
     </table>
   </div>
 </div>
+<a href="mailto:{{$team->user->email}}?subject=応募フォーム&body=本文">メールはこちらへ</a>
 @auth
   @if ($team->user_id === $user->id)
     <div class="row justify-content-center">

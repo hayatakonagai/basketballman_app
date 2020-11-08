@@ -78,7 +78,7 @@ class RegisterController extends Controller
  */
 protected function create(array $data)
 {   
-    if ($data['image'] !== null) {
+    if (!empty($data["image"])) {
             if(config('const.env')=="local"){
                 $image = $data['image']->store('public/user');
                 $data['image'] = basename($image);
@@ -87,21 +87,24 @@ protected function create(array $data)
                 $data['image'] = Storage::disk('s3')->putFile('public/user', $data['image'], 'public');
             }
     }
-    return User::create([
-        'name' => $data['name'],
-        'email' => $data['email'],
-        'password' => Hash::make($data['password']),
-        'gender' => $data['gender'],
-        'height' => $data['height'],
-        'weight' => $data['weight'],
-        'age' => $data['age'],
-        'where' => $data['where'],
-        'position' => $data['position'],
-        'carrer' => implode(',',$data['carrer']),
-        'acievement' => $data['acievement'],
-        'appeal' => $data['appeal'],
-        'image' => $data['image'],
-    ]);
+    $createData =[
+    'name' => $data['name'],
+    'email' => $data['email'],
+    'password' => Hash::make($data['password']),
+    'gender' => $data['gender'],
+    'height' => $data['height'],
+    'weight' => $data['weight'],
+    'age' => $data['age'],
+    'where' => $data['where'],
+    'position' => $data['position'],
+    'carrer' => implode(',',$data['carrer']),
+    'acievement' => $data['acievement'],
+    'appeal' => $data['appeal'],
 
+    ];
+    if(!empty($data["image"])){
+        $createData['image']=$data['image'];
+    }
+    return User::create($createData);
 }
 }
