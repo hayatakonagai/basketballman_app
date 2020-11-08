@@ -13,7 +13,7 @@
 
 Route::get('/', 'WebController@index');
 Route::resource('teams','TeamRegisterController');
-//Route::post('teams','TeamRegisterController@index')->name('teams.index'); //絞り込み検索のルーティング
+//Route::get('teams/search','TeamRegisterController@search')->name('teams.search'); //絞り込み検索のルーティング
 Auth::routes(['verify' => true]);
 Route::post('products/{product}/reviews', 'ReviewController@store');
 Route::get('products/{product}/favorite', 'ProductController@favorite')->name('products.favorite');

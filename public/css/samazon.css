@@ -251,3 +251,9 @@ dd{
   right:10px;
   top:40px;
 }
+.search-form{
+  border:1px solid #CCCCCC;
+  padding: 15px;
+  background: white;
+  margin-bottom:30px;
+}

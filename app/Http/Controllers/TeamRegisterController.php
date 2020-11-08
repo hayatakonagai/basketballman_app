@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 use App\Team;
 use App\User;
 
@@ -19,11 +20,20 @@ class TeamRegisterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $teams = Team::orderBy('updated_at', 'desc')->paginate(3);
-        $prefs = config('array');
-        return view('teams.index',compact('teams','prefs'));
+        $keyword = $request->input('where');
+        
+        if(!empty($keyword)){
+            $teams = Team::where('where',$keyword)->paginate(3);
+            $prefs = config('array');
+            return view('teams.index',compact('teams','prefs'));
+            }
+            else{
+            $teams = Team::orderBy('updated_at', 'desc')->paginate(3);
+            $prefs = config('array');
+            return view('teams.index',compact('teams','prefs'));
+            };
     }
 
     /**
