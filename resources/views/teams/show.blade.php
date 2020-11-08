@@ -1,18 +1,29 @@
 @extends('layouts.app')
 @section('content')
 <div class="row justify-content-center">
-  <div class="col-4 bg-white">
-    @if(config('const.env') == "local" && $team->image !== "")
-      <img src="{{ asset('storage/team/'.$team->image) }}" class="h-10 img-fluid";>
-    @endif
-    @if (config('const.env') == "production" && $team->image !== "")
-      <img src="{{ Storage::disk('s3')->url($team->image) }}" class="h-10 img-fluid">
-    @endif
+  <div class="col-4">
+    <div class="main-list">
+      <h2><span class="border-bottom border-dark">チーム{{$team->name}}の募集情報</span></h2>
+      <p>{{$team->where}}のバスケチームです。</p>
+      <p>チームのレベルとしては{{$team->level}}です。</p>
+      <p>募集しているのは、{{$team->wanted}}です。興味がある方は、お気軽にメッセージをお送りください。</p>
+    </div>
   </div>
 </div>
 <div class="row justify-content-center">
+  <div class="col-4 bg-white">
+    @if(config('const.env') == "local" && $team->image !== "")
+      <img src="{{ asset('storage/team/'.$team->image) }}" class="img-fluid";>
+    @endif
+    @if (config('const.env') == "production" && $team->image !== "")
+      <img src="{{ Storage::disk('s3')->url($team->image) }}" class="img-fluid">
+    @endif
+  </div>
+</div>
+<br>
+<div class="row justify-content-center">
   <div class="col-5">
-    <table class="table table-bordered">
+    <table class="table table-bordered bg-white">
       <thead>
         <tr>
           <th>項目</th>
@@ -20,7 +31,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="table">
+        <tr>
           <th scope="row">チーム名</th>
           <td style="width:50%">{{$team->name}}</td>
         </tr>
@@ -64,11 +75,14 @@
     </table>
   </div>
 </div>
-<a href="mailto:{{$team->user->email}}?subject=応募フォーム&body=本文">メールはこちらへ</a>
+
 @auth
   @if ($team->user_id === $user->id)
     <div class="row justify-content-center">
       <div class="col-5">
+      <button type="button" class="btn-block btn-primary"onclick="location.href='mailto:{{$team->user->email}}?subject=【{{config('app.name')}}】応募フォーム&body=【氏名】{{$team->user->name}} %0D%0A 【性別】{{$team->user->gender}}%0D%0A 【身長】{{$team->user->height}}%0D%0A 【年齢】{{$team->user->age}}%0D%0A 【ポジション】{{$team->user->position}}%0D%0A【経験】{{$team->user->carrer}}%0D%0A【実績】{{$team->user->acievement}}%0D%0A 【アピール】{{$team->user->appeal}}%0D%0A 【チーム代表者へメッセージ】'">
+        <i class="fas fa-envelope fa-3x"></i><h5>チーム代表者へメールを送る</h5></a>
+      </button>
         <button type=“button” class= "btn samazon-edit-button btn-block" onclick="location.href='/teams/{{$team->id}}/edit'">編集する</button>
         <form action="/teams/{{ $team->id }}" method="POST" onsubmit="if(confirm('本当に削除してよろしいですか？')) { return true } else {return false };">
           <input type="hidden" name="_method" value="DELETE">
