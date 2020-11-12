@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
 <div class="row justify-content-center">
-  <div class="col-4">
-    <div class="main-list">
+  <div class="col-md-4">
+    <div class="team-show-list">
       <h2><span class="border-bottom border-dark">チーム{{$team->name}}の募集情報</span></h2>
       <p>{{$team->where}}のバスケチームです。</p>
       <p>チームのレベルとしては{{$team->level}}です。</p>
@@ -11,7 +11,7 @@
   </div>
 </div>
 <div class="row justify-content-center">
-  <div class="col-4 bg-white">
+  <div class="col-md-4 bg-white">
     @if(config('const.env') == "local" && $team->image !== "")
       <img src="{{ asset('storage/team/'.$team->image) }}" class="img-fluid";>
     @endif
@@ -22,7 +22,7 @@
 </div>
 <br>
 <div class="row justify-content-center">
-  <div class="col-5">
+  <div class="col-md-5">
     <table class="table table-bordered bg-white">
       <thead>
         <tr>
@@ -78,7 +78,7 @@
 
 @auth
 <div class="row justify-content-center">
-  <div class="col-5 text-center">
+  <div class="col-md-5 text-center">
     <button type="button" class="btn samazon-submit-button"onclick="location.href='mailto:{{$team->user->email}}?subject=【{{config('app.name')}}】応募フォーム&body=【氏名】{{$user->name}} %0D%0A 【性別】{{$user->gender}}%0D%0A 【身長】{{$user->height}}%0D%0A 【年齢】{{$user->age}}%0D%0A 【ポジション】{{$user->position}}%0D%0A【経験】{{$user->carrer}}%0D%0A【実績】{{$user->acievement}}%0D%0A 【アピール】{{$user->appeal}}%0D%0A 【チーム代表者へメッセージ】'">
     <i class="fas fa-envelope fa-3x"></i><h5>チーム代表者へメールを送る</h5></a>
     </button>
@@ -86,7 +86,7 @@
 </div>
   @if ($team->user_id === $user->id)
     <div class="row justify-content-center">
-      <div class="col-5">
+      <div class="col-md-5">
 
         <button type=“button” class= "btn samazon-edit-button btn-block" onclick="location.href='/teams/{{$team->id}}/edit'">編集する</button>
         <form action="/teams/{{ $team->id }}" method="POST" onsubmit="if(confirm('本当に削除してよろしいですか？')) { return true } else {return false };">

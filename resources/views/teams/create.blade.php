@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-5">
+        <div class="col-md-6">
             <h3 class="mt-3 mb-3">新規チーム登録</h3>
             <hr>
 

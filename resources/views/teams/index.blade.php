@@ -3,15 +3,15 @@
 
 @auth
     <div class="row justify-content-center">
-        <div class="col-md-5">
-            <h3 class="mt-3 mb-3"><a href="{{route('teams.create')}}">新規メンバー募集</a></h3>
+        <div class="col-md-5 col-xs-10">
+            <h3 class="mt-3 mb-3 ml-3"><a href="{{route('teams.create')}}">新規メンバー募集</a></h3>
             <hr>
         </div>
     </div>
     @endauth
 <div class="container">
     <div class="form-group row justify-content-center">
-        <div class = "search-form col-md-5">
+        <div class = "search-form col-md-5 xs-10">
             <h2>チームを絞り込む<i class="fas fa-search"></i></h2>
             <form method="GET" action="{{route('teams.index')}}" enctype="multipart/form-data">
                 <label for="where" class="col-form-label text-md-left">カテゴリ：都道府県</label>
@@ -28,7 +28,7 @@
     </div>
 
     <div class="row justify-content-center">
-        <div class="col-md-5">
+        <div class="col-md-5 col-xs-10">
             @foreach($teams as $team)
                 <div class="main-list">
                     <dl class="teams-index">
@@ -39,7 +39,7 @@
                         <dt>更新日</dt><dd>{{$team->updated_at}}</dd>
                         <div class ="team-index-img">
                             @if (config('const.env') == "local" && $team->image !== "")
-                                <img src="{{ asset('storage/team/'.$team->image) }}" style=width:150px>
+                                <img src="{{ asset('storage/team/'.$team->image) }}"style=width:150px>
                             @endif
                             @if (config('const.env') == "production" && $team->image !== "")
                                 <img src="{{ Storage::disk('s3')->url($team->image) }}" style=width:150px>

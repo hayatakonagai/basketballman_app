@@ -244,16 +244,39 @@ dd{
   padding: 15px;
   background: #FFFAF4;
   margin-bottom:30px;
-  position:relative;
 }
 .team-index-img{
-  position:absolute;
-  right:10px;
-  top:40px;
+  text-align:center;
+}
+
+@media(min-width:769px){
+  .main-list{
+    position:relative;
+    padding-right:160px;
+  }
+  .team-index-img{
+    position:absolute;
+    right:10px;
+    top:40px;
+  }
 }
 .search-form{
   border:1px solid #CCCCCC;
   padding: 15px;
   background: white;
+  margin-bottom:30px;
+}
+
+@media(min-width:769px){
+.mypage{
+  width:50%;
+}
+}
+
+.team-show-list{
+  border:1px solid #CCCCCC;
+  display:block;
+  padding: 15px;
+  background: #FFFAF4;
   margin-bottom:30px;
 }

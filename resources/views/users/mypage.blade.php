@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container d-flex justify-content-center mt-3">
-    <div class="w-50">
+    <div class="mypage">
         <h1>マイページ</h1>
         <hr>
             @if (config('const.env') == "local" && $user->image !== "")

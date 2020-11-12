@@ -1,15 +1,4 @@
 <nav class="navbar navbar-expand-md navbar-light shadow-sm samazon-header-container">
-    <a class="navbar-brand" href="{{ url('/') }}">
-        <img src="{{asset('img/logo.jpeg')}}" alt="">
-    </a>
-    <form class="form-inline">
-        <div class="form-group">
-            <input class="form-control samazon-header-search-input">
-        </div>
-        <div class="input-group">
-            <button type="submit" class="btn samazon-header-search-button"><i class="fas fa-search samazon-header-search-icon"></i></button>
-        </div>
-    </form>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
         <span class="navbar-toggler-icon"></span>
     </button>
