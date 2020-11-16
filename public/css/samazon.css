@@ -245,7 +245,7 @@ dd{
   background: #FFFAF4;
   margin-bottom:30px;
 }
-.team-index-img{
+.index-img{
   text-align:center;
 }
 
@@ -254,7 +254,7 @@ dd{
     position:relative;
     padding-right:160px;
   }
-  .team-index-img{
+  .index-img{
     position:absolute;
     right:10px;
     top:40px;
@@ -279,4 +279,20 @@ dd{
   padding: 15px;
   background: #FFFAF4;
   margin-bottom:30px;
+}
+
+.toppage-description{
+  border:1px solid #CCCCCC;
+  display:block;
+  padding: 15px;
+  background: #FFFAF4;
+  margin-bottom:30px;
+}
+
+.jumbotron-extend {
+  position:relative;
+  height:100vh;
+  min-height:300px;
+  background:url("../../storage/app/public/top/top.jpg") no-repeat center center;
+  background-size: cover;
 }

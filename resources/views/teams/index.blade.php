@@ -37,7 +37,7 @@
                         <dt>活動場所</dt><dd>{{$team->where}}</dd>
                         <dt>活動頻度</dt><dd>{{$team->frequency}}</dd>
                         <dt>更新日</dt><dd>{{$team->updated_at}}</dd>
-                        <div class ="team-index-img">
+                        <div class ="index-img">
                             @if (config('const.env') == "local" && $team->image !== "")
                                 <img src="{{ asset('storage/team/'.$team->image) }}"style=width:150px>
                             @endif

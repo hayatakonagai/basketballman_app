@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except(['index', 'show']);
     }
    public function mypage(Team $teams)
    {
@@ -19,6 +19,24 @@ class UserController extends Controller
        $teams = Team::where('user_id',$user->id)->get();
        return view('users.mypage', compact('user','teams'));
    }
+
+   public function index(Request $request)
+   {
+
+       $keyword = $request->input('where');
+        
+       if(!empty($keyword)){
+           $users = User::where('where',$keyword)->paginate(5);
+           $prefs = config('array');
+           return view('users.index',compact('users','prefs'));
+           }
+           else{
+            $users = User::orderBy('name','desc')->paginate(5);
+            $prefs = config('array');
+            return view('users.index',compact('users','prefs'));
+           };
+   }
+   
     /**
      * Show the form for editing the specified resource.
      *
@@ -91,7 +109,12 @@ class UserController extends Controller
         return redirect()->route('mypage');
 
     }
-       
+     public function show($id)
+        {           
+        $user = User::where('id',$id)->first();
+        return view('users.show',compact('user'));
+        }
+
         public function edit_password()
         {
             return view('users.edit_password');

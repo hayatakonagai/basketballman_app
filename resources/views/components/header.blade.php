@@ -8,30 +8,40 @@
         <ul class="navbar-nav ml-auto mr-5 mt-2">
             <!-- Authentication Links -->
             @guest
-            <li class="nav-item mr-5">
+            <li class="nav-item mr-3">
                 <a class="nav-link" href="{{ route('register') }}">
                 <i class="fas fa-external-link-alt"></i><label>新規登録</label></a>
             </li>
-            <li class="nav-item mr-5">
+            <li class="nav-item mr-3">
                 <a class="nav-link" href="{{ route('login') }}">
                     <i class="fas fa-sign-in-alt"></i><label>ログイン</label>
                 </a>
             </li>
-            <li class="nav-item mr-5">
+            <li class="nav-item mr-3">
                <a class="nav-link" href="{{ route('teams.index') }}">
-                   <i class="fas fa-users mr-1"></i><label>チーム一覧</label>
+                   <i class="fas fa-search mr-1"></i><label>チームを探す</label>
+               </a>
+             </li>
+            <li class="nav-item mr-3">
+               <a class="nav-link" href="{{ route('users.index') }}">
+                   <i class="fas fa-search mr-1"></i><label>プレイヤーを探す</label>
                </a>
              </li>
             @endguest
             @auth
-             <li class="nav-item mr-5">
+             <li class="nav-item mr-3">
                <a class="nav-link" href="{{ route('mypage') }}">
                    <i class="fas fa-user mr-1"></i><label>マイページ</label>
                </a>
            </li>
-             <li class="nav-item mr-5">
+           <li class="nav-item mr-3">
                <a class="nav-link" href="{{ route('teams.index') }}">
-                   <i class="fas fa-users mr-1"></i><label>チーム一覧</label>
+                   <i class="fas fa-search mr-1"></i><label>チームを探す</label>
+               </a>
+             </li>
+            <li class="nav-item mr-3">
+               <a class="nav-link" href="{{ route('users.index') }}">
+                   <i class="fas fa-search mr-1"></i><label>プレイヤーを探す</label>
                </a>
              </li>
             @endauth
