@@ -2,9 +2,7 @@
 
 @section('content')
 <div class="container-toppage">
-    <div class="jumbotron jumbotron-extend">
-         <h1>Hoop-member</h1>
-    </div>
+<img src="{{asset('storage/top/top.jpg')}}">
     <div class="row justify-content-center">
         <div class="toppage-description col-md-3 text-center">
             <i class="fas fa-user-plus fa-6x"></i>
