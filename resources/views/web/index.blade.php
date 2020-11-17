@@ -3,7 +3,11 @@
 @section('content')
 <div class="container-toppage">
     <div class="jumbotron jumbotron-extend">
-    <h1>hoop-member</h1>
+        <p>バスケがしたい・・・</p>
+        <p>新メンバーを募集したい・・・</p>
+        <p>現役バリバリの選手をスカウトしたい・・・</p>
+        <br>
+        <p style="font-weight:bold">バスケに関するお悩み、なんでも解決します！</p>
     </div>
     <div class="row justify-content-center">
         <div class="toppage-description col-md-3 text-center">
