@@ -3,7 +3,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div>
-        <a href="{{ url('/') }}" style="text-decoration:none;color:black;"><h1>バスケットマン集結!</h1></a>
+        <a href="{{ url('/') }}" style="text-decoration:none;color:black;"><h1>バスケットマン集結</h1></a>
     </div>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <!-- Right Side Of Navbar -->
