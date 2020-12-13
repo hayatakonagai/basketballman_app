@@ -18,13 +18,13 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/samazon.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/basketball.css')}}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
         @component('components.header')
         @endcomponent
-        <main class="py-4 mb-5">
+        <main class>
             @yield('content')
         </main>
          @component('components.footer')

@@ -2,13 +2,28 @@
 
 @section('content')
 <div class="container-toppage">
-    <div class="jumbotron jumbotron-extend">
-        <p>バスケがしたい・・・</p>
-        <p>新メンバーを募集したい・・・</p>
-        <p>現役バリバリの選手をスカウトしたい・・・</p>
-        <br>
-        <p style="font-weight:bold">バスケに関するお悩み、なんでも解決します！</p>
+    <div class="jumbotron jumbotron-extend pt-3 mb-0">
+        <p>管理人さん・・・</p>
+        <p>バスケがしたいです・・・</p>
+            <div class="app-description">
+                <p>『バスケットマン集結』は、</p>
+                <p>バスケを愛する人たちによるコミュニティサイトです</p>
+            </div>
+            @guest
+            <div class="top-btn">
+                <button type="button" class="top-btn-link" onclick="location.href='./register'">
+                新規登録
+                </button>
+                <button type="button" class="top-btn-link" onclick="location.href='./login'">
+                ログイン
+                </button>
+                <button type="button" class="top-btn-link" onclick="location.href='./login'">
+                ゲストログイン
+                </button>
+            </div>
+            @endguest
     </div>
+    @auth
     <div class="row justify-content-center">
         <div class="toppage-description col-md-3 text-center">
             <i class="fas fa-user-plus fa-6x"></i>
@@ -29,5 +44,6 @@
             <p>ユーザーへメールを送ることができます</p>
         </div>
     </div>
+    @endauth
 </div>
 @endsection
