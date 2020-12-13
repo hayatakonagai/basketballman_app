@@ -1,9 +1,9 @@
-<nav class="navbar navbar-expand-md navbar-light shadow-sm samazon-header-container">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm samazon-header-container pt-0 pb-0">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div>
-        <a href="{{ url('/') }}" style="text-decoration:none;color:black;"><h1>バスケットマン集結</h1></a>
+        <a href="{{ url('/') }}" style="text-decoration:none;color:white"><h1><i class="fas fa-basketball-ball"></i> バスケットマン集結 <i class="fas fa-basketball-ball"></i></h1></a>
     </div>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <!-- Right Side Of Navbar -->
@@ -47,7 +47,6 @@
                </a>
              </li>
             @endauth
-            
         </ul>
     </div>
 </nav>
