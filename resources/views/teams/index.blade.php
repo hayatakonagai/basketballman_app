@@ -8,7 +8,7 @@
             <hr>
         </div>
     </div>
-    @endauth
+@endauth
 <div class="container">
     <div class="form-group row justify-content-center">
         <div class = "search-form col-md-5 xs-10">
@@ -22,6 +22,16 @@
                     @endforeach         
                 </select>
                 <br>
+
+                <label for="level" class="col-form-label text-md-left">カテゴリ：レベル</label>
+                <select id="level" class="form-control" name="level">
+                    <option value="" style="display: none;">選択してください</option>
+                    @foreach($levels as $level)
+                    <option value="{{$level}}">{{$level}}</option>
+                    @endforeach         
+                </select>
+                <br>
+
                 <input type="submit" value="検索" class="btn btn-outline-success">
             </form>
         </div>
@@ -33,9 +43,9 @@
                 <div class="main-list">
                     <dl class="teams-index">
                         <dt>チーム名</dt><dd><a href="{{route('teams.show',['id'=>$team->id])}}">{{$team->name}}</a></dd>
-                        <dt>応募資格</dt><dd>{{$team->wanted}}</dd>
                         <dt>活動場所</dt><dd>{{$team->where}}</dd>
-                        <dt>活動頻度</dt><dd>{{$team->frequency}}</dd>
+                        <dt>レベル</dt><dd>{{$team->level}}</dd>
+                        <dt>応募資格</dt><dd>{{$team->wanted}}</dd>
                         <dt>更新日</dt><dd>{{$team->updated_at}}</dd>
                         <div class ="index-img">
                             @if (config('const.env') == "local" && $team->image !== "")
