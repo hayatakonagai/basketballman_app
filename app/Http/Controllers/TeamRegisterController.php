@@ -22,8 +22,34 @@ class TeamRegisterController extends Controller
      */
     public function index(Request $request)
     {
-        $keyword = $request->input('where');
-        
+        $key_pref = $request->input('where');
+        $key_level = $request->input('level');
+
+        if(isset($key_pref,$key_level)){
+            $teams = Team::where('where',$key_pref)->where('level',$key_level)->paginate(3);
+            $prefs = config('pref');
+            $levels = config('level');
+            return view('teams.index',compact('teams','prefs','levels'));
+            }
+        else if(isset($key_pref)){
+            $teams = Team::where('where',$key_pref)->paginate(3);
+            $prefs = config('pref');
+            $levels = config('level');
+            return view('teams.index',compact('teams','prefs','levels'));
+            }
+        else if(isset($key_level)){
+            $teams = Team::where('where',$key_level)->paginate(3);
+            $prefs = config('pref');
+            $levels = config('level');
+            return view('teams.index',compact('teams','prefs','levels')); 
+        }
+        else{
+        $teams = Team::orderBy('updated_at', 'desc')->paginate(3);
+        $prefs = config('pref');
+        $levels = config('level');
+        return view('teams.index',compact('teams','prefs','levels'));
+        };
+/*
         if(!empty($keyword)){
             $teams = Team::where('where',$keyword)->paginate(3);
             $prefs = config('array');
@@ -34,6 +60,7 @@ class TeamRegisterController extends Controller
             $prefs = config('array');
             return view('teams.index',compact('teams','prefs'));
             };
+*/
     }
 
     /**
