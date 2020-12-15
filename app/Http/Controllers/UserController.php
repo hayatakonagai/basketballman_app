@@ -22,21 +22,35 @@ class UserController extends Controller
 
    public function index(Request $request)
    {
-
-       $keyword = $request->input('where');
+        $key_pref = $request->input('where');
+        $key_gender = $request->input('gender');
         
-       if(!empty($keyword)){
-           $users = User::where('where',$keyword)->paginate(5);
-           $prefs = config('array');
-           return view('users.index',compact('users','prefs'));
-           }
-           else{
-            $users = User::orderBy('name','desc')->paginate(5);
-            $prefs = config('array');
-            return view('users.index',compact('users','prefs'));
-           };
+        if(isset($key_pref,$key_gender)){
+            $users = User::where('where',$key_pref)->where('gender',$key_gender)->paginate(3);
+            $prefs = config('pref');
+            $genders = config('gender');
+            return view('users.index',compact('users','prefs','genders'));
+            }
+        else if(isset($key_pref)){
+            $users = User::where('where',$key_pref)->paginate(3);
+            $prefs = config('pref');
+            $genders = config('gender');
+            return view('users.index',compact('users','prefs','genders'));
+            }
+        else if(isset($key_gender)){
+            $users = User::where('gender',$key_gender)->paginate(3);
+            $prefs = config('pref');
+            $genders = config('gender');
+            return view('users.index',compact('users','prefs','genders')); 
+        }
+        else{
+            $users = User::orderBy('name', 'desc')->paginate(3);
+            $prefs = config('pref');
+            $genders = config('gender');
+            return view('users.index',compact('users','prefs','genders'));
+        };
    }
-   
+
     /**
      * Show the form for editing the specified resource.
      *

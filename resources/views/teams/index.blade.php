@@ -19,15 +19,13 @@
 
     <div class="row justify-content-center">
         <div class="wrapper-link-button col-md-4 xs-10" >
-            <a class="link-button" href="{{ route('register') }}">
+            <a class="link-button" href="{{ route('teams.create') }}">
                 チームメンバーを募集する
             </a>
         </div>
     </div>
 
     <div class ="row">
-       
-
         <div class="col-md-6 col-xs-10">
             <h2>チーム一覧</h2>
             @foreach($teams as $team)
