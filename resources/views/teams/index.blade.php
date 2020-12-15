@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-
+{{--
 @auth
     <div class="row justify-content-center">
         <div class="col-md-5 col-xs-10">
@@ -9,36 +9,51 @@
         </div>
     </div>
 @endauth
+--}}
 <div class="container">
-    <div class="form-group row justify-content-center">
-        <div class = "search-form col-md-5 xs-10">
-            <h2>チームを絞り込む<i class="fas fa-search"></i></h2>
-            <form method="GET" action="{{route('teams.index')}}" enctype="multipart/form-data">
-                <label for="where" class="col-form-label text-md-left">カテゴリ：都道府県</label>
-                <select id="where" class="form-control" name="where">
-                    <option value="" style="display: none;">選択してください</option>
-                    @foreach($prefs as $pref)
-                    <option value="{{$pref}}">{{$pref}}</option>
-                    @endforeach         
-                </select>
-                <br>
-
-                <label for="level" class="col-form-label text-md-left">カテゴリ：レベル</label>
-                <select id="level" class="form-control" name="level">
-                    <option value="" style="display: none;">選択してください</option>
-                    @foreach($levels as $level)
-                    <option value="{{$level}}">{{$level}}</option>
-                    @endforeach         
-                </select>
-                <br>
-
-                <input type="submit" value="検索" class="btn btn-outline-success">
-            </form>
+    <div class="row">
+        <div class="team-index-image col-12" >
+            <p>Find a Team</p>
         </div>
     </div>
 
     <div class="row justify-content-center">
-        <div class="col-md-5 col-xs-10">
+        <div class="wrapper-link-button col-md-4 xs-10" >
+            <a class="link-button" href="{{ route('register') }}">
+                チームメンバーを募集する
+            </a>
+        </div>
+    </div>
+
+    <div class ="row">
+        <div class="form-group col-md-5 xs-10">
+            <div class = "search-form ">
+                <h2>チームを絞り込む<i class="fas fa-search"></i></h2>
+                <form method="GET" action="{{route('teams.index')}}" enctype="multipart/form-data">
+                    <label for="where" class="col-form-label text-md-left">カテゴリ：都道府県</label>
+                    <select id="where" class="form-control" name="where">
+                        <option value="" style="display: none;">選択してください</option>
+                        @foreach($prefs as $pref)
+                        <option value="{{$pref}}">{{$pref}}</option>
+                        @endforeach         
+                    </select>
+                    <br>
+
+                    <label for="level" class="col-form-label text-md-left">カテゴリ：レベル</label>
+                    <select id="level" class="form-control" name="level">
+                        <option value="" style="display: none;">選択してください</option>
+                        @foreach($levels as $level)
+                        <option value="{{$level}}">{{$level}}</option>
+                        @endforeach         
+                    </select>
+                    <br>
+
+                    <input type="submit" value="検索" class="btn btn-outline-success">
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-xs-10">
             @foreach($teams as $team)
                 <div class="main-list">
                     <dl class="teams-index">

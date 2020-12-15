@@ -45,7 +45,7 @@
                         ログイン
                     </button>
 
-                    <a class="btn btn-link mt-3 d-flex justify-content-center samazon-login-text" href="{{ route('password.request') }}">
+                    <a class="btn mt-3 d-flex justify-content-center samazon-login-text" href="{{ route('password.request') }}">
                         パスワードをお忘れの場合
                     </a>
                 </div>
@@ -54,7 +54,7 @@
             <hr>
 
             <div class="form-group">
-                <a class="btn btn-link mt-3 d-flex justify-content-center samazon-login-text" href="{{ route('register') }}">
+                <a class="btn mt-3 d-flex justify-content-center samazon-login-text" href="{{ route('register') }}">
                     新規登録
                 </a>
             </div>
