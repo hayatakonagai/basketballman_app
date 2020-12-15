@@ -314,7 +314,7 @@ dd{
   display: flex;
   align-items: center;
   height:200px;
-  background:url(./team1.jpg);
+  background:url(https://hoop-member.s3-ap-northeast-1.amazonaws.com/public/top/team.jpg);
   background-size: cover;
   background-position:center center;
   margin-top: 20px;
