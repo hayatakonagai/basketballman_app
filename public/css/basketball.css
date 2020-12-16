@@ -180,6 +180,7 @@ label {
 .wrapper-link-button{
   margin-top: 2rem;
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 .link-button {
@@ -316,6 +317,20 @@ dd{
   align-items: center;
   height:200px;
   background:url(https://hoop-member.s3-ap-northeast-1.amazonaws.com/public/top/team.jpg);
+  background-size: cover;
+  background-position:center center;
+  
+  margin-top: 20px;
+}
+.user-index-image{
+  color:black;
+  font-size: 3.5rem;
+  font-family: 'Caveat', cursive;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  height:200px;
+  background:url(https://hoop-member.s3-ap-northeast-1.amazonaws.com/public/top/player.jpg);
   background-size: cover;
   background-position:center center;
   margin-top: 20px;

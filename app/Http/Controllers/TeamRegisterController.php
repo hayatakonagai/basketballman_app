@@ -44,10 +44,10 @@ class TeamRegisterController extends Controller
             return view('teams.index',compact('teams','prefs','levels')); 
         }
         else{
-        $teams = Team::orderBy('updated_at', 'desc')->paginate(3);
-        $prefs = config('pref');
-        $levels = config('level');
-        return view('teams.index',compact('teams','prefs','levels'));
+            $teams = Team::orderBy('updated_at', 'desc')->paginate(3);
+            $prefs = config('pref');
+            $levels = config('level');
+            return view('teams.index',compact('teams','prefs','levels'));
         };
 /*
         if(!empty($keyword)){
