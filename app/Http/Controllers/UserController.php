@@ -24,30 +24,63 @@ class UserController extends Controller
    {
         $key_pref = $request->input('where');
         $key_gender = $request->input('gender');
+        $key_height = $request->input('height');
         
-        if(isset($key_pref,$key_gender)){
+        if(isset($key_pref,$key_gender,$key_height)){
+            $users = User::where('where',$key_pref)->where('gender',$key_gender)->where('height','>=',$key_gender)->paginate(3);
+            $prefs = config('pref');
+            $genders = config('gender');
+            $heights = config('height');
+            return view('users.index',compact('users','prefs','genders','heights'));
+            }
+        else if(isset($key_pref,$key_gender)){
             $users = User::where('where',$key_pref)->where('gender',$key_gender)->paginate(3);
             $prefs = config('pref');
             $genders = config('gender');
-            return view('users.index',compact('users','prefs','genders'));
+            $heights = config('height');
+            return view('users.index',compact('users','prefs','genders','heights'));
+            }
+        else if(isset($key_pref,$key_height)){
+            $users = User::where('where',$key_pref)->where('height','>=',$key_height)->paginate(3);
+            $prefs = config('pref');
+            $genders = config('gender');
+            $heights = config('height');
+            return view('users.index',compact('users','prefs','genders','heights'));
+            }
+        else if(isset($key_gender,$key_height)){
+            $users = User::where('where',$key_gender)->where('height','>=',$key_height)->paginate(3);
+            $prefs = config('pref');
+            $genders = config('gender');
+            $heights = config('height');
+            return view('users.index',compact('users','prefs','genders','heights'));
             }
         else if(isset($key_pref)){
             $users = User::where('where',$key_pref)->paginate(3);
             $prefs = config('pref');
             $genders = config('gender');
-            return view('users.index',compact('users','prefs','genders'));
+            $heights = config('height');
+            return view('users.index',compact('users','prefs','genders','heights'));
             }
         else if(isset($key_gender)){
             $users = User::where('gender',$key_gender)->paginate(3);
             $prefs = config('pref');
             $genders = config('gender');
-            return view('users.index',compact('users','prefs','genders')); 
+            $heights = config('height');
+            return view('users.index',compact('users','prefs','genders','heights'));
+        }
+        else if(isset($key_height)){
+            $users = User::where('height','>=',$key_height)->paginate(3);
+            $prefs = config('pref');
+            $genders = config('gender');
+            $heights = config('height');
+            return view('users.index',compact('users','prefs','genders','heights'));
         }
         else{
             $users = User::orderBy('name', 'desc')->paginate(3);
             $prefs = config('pref');
             $genders = config('gender');
-            return view('users.index',compact('users','prefs','genders'));
+            $heights = config('height');
+            return view('users.index',compact('users','prefs','genders','heights'));
         };
    }
 

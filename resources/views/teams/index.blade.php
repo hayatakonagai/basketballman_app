@@ -26,30 +26,7 @@
     </div>
 
     <div class ="row">
-        <div class="col-md-6 col-xs-10">
-            <h2>チーム一覧</h2>
-            @foreach($teams as $team)
-                <div class="main-list">
-                    <dl class="teams-index">
-                        <dt>チーム名</dt><dd><a href="{{route('teams.show',['id'=>$team->id])}}">{{$team->name}}</a></dd>
-                        <dt>活動場所</dt><dd>{{$team->where}}</dd>
-                        <dt>レベル</dt><dd>{{$team->level}}</dd>
-                        <dt>応募資格</dt><dd>{{$team->wanted}}</dd>
-                        <dt>更新日</dt><dd>{{$team->updated_at}}</dd>
-                        <div class ="index-img">
-                            @if (config('const.env') == "local" && $team->image !== "")
-                                <img src="{{ asset('storage/team/'.$team->image) }}"style=width:150px>
-                            @endif
-                            @if (config('const.env') == "production" && $team->image !== "")
-                                <img src="{{ Storage::disk('s3')->url($team->image) }}" style=width:150px>
-                            @endif
-                        </div>
-                </div>
-            @endforeach
-            {{ $teams->links() }}
-        </div>
-
-        <div class="form-group col-md-5 xs-10">
+        <div class="form-group col-md-5 xs-10 order-md-2">
             <div class = "search-form ">
                 <h2>絞り込み検索<i class="fas fa-search"></i></h2>
                 <form method="GET" action="{{route('teams.index')}}" enctype="multipart/form-data">
@@ -74,6 +51,29 @@
                     <input type="submit" value="検索" class="btn btn-outline-success">
                 </form>
             </div>
+        </div>
+
+        <div class="col-md-6 col-xs-10 order-md-1">
+            <h2>チーム一覧</h2>
+            @foreach($teams as $team)
+                <div class="main-list">
+                    <dl class="teams-index">
+                        <dt>チーム名</dt><dd><a href="{{route('teams.show',['id'=>$team->id])}}">{{$team->name}}</a></dd>
+                        <dt>活動場所</dt><dd>{{$team->where}}</dd>
+                        <dt>レベル</dt><dd>{{$team->level}}</dd>
+                        <dt>応募資格</dt><dd>{{$team->wanted}}</dd>
+                        <dt>更新日</dt><dd>{{$team->updated_at}}</dd>
+                        <div class ="index-img">
+                            @if (config('const.env') == "local" && $team->image !== "")
+                                <img src="{{ asset('storage/team/'.$team->image) }}"style=width:150px>
+                            @endif
+                            @if (config('const.env') == "production" && $team->image !== "")
+                                <img src="{{ Storage::disk('s3')->url($team->image) }}" style=width:150px>
+                            @endif
+                        </div>
+                </div>
+            @endforeach
+            {{ $teams->links() }}
         </div>
     </div>
 </div>
