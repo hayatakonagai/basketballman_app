@@ -17,7 +17,7 @@
                 <button type="button" class="top-btn-link" onclick="location.href='./login'">
                 ログイン
                 </button>
-                <button type="button" class="top-btn-link" onclick="location.href='./login'">
+                <button type="button" class="top-btn-link" onclick="location.href='./login/guest'">
                 ゲストログイン
                 </button>
             </div>
