@@ -34,3 +34,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/login/guest', 'Auth\LoginController@guestLogin');
+
+Route::resource('posts', 'PostsController');
