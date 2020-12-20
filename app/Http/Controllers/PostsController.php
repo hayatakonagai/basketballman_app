@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Post;
+use App\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -45,7 +46,8 @@ class PostsController extends Controller
     public function show(Post $post , User $user)
     {
         $user = User::all();
-        return view('posts.show',compact('post','user'));
+        $comments = Comment::where('post_id',$post->id)->get();
+        return view('posts.show',compact('post','user','comments'));
     }
 
 }

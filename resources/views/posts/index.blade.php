@@ -61,7 +61,8 @@
           <dl class="users-index">
             <dt>タイトル</dt><dd><a href="{{route('posts.show',['id'=>$post->id])}}">{{$post->title}}</a></dd>
             <dt>カテゴリ</dt><dd>{{$post->category}}</dd>
-            <dt>カテゴリ</dt><dd>{{$post->user->name}}</dd>
+            <dt>投稿者</dt><dd>{{$post->user->name}}</dd>
+            <dt>投稿日</dt><dd>{{$post->created_at}}</dd>
           </dl>
         </div>
       @endforeach

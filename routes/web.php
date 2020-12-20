@@ -36,3 +36,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/login/guest', 'Auth\LoginController@guestLogin');
 
 Route::resource('posts', 'PostsController');
+Route::resource('comments', 'CommentsController' , ['only' => ['store',]]);

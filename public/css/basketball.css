@@ -54,16 +54,16 @@ p.display1{
   font-size: 1rem;
 }
 p.display2{
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 p.display3{
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 p.display4{
-  font-size: 2.5rem;
+  font-size: 1.75rem;
 }
 p.display5{
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 big {
@@ -423,8 +423,17 @@ dd{
   color: rgba(255,255,255,0.5);
 }
 
-
-
 .login-container{
   height: 80vh;
+}
+
+.posts-show-main{
+  width:100%;
+  text-align: left;
+  background-color: white;
+}
+
+.posts-show-body{
+  border-bottom: 1px solid gray;
+  padding:10px 10px;
 }
