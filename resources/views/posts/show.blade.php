@@ -6,7 +6,7 @@
         <h1>{{$post->title}}</h1>
         <p class="display2">カテゴリ：{{$post->category}}</p>
         <p class="display2">投稿者：{{$post->user->name}}</p>
-        @if ($post->user->id == Auth::user()->id)
+        @if ( Auth::check() && $post->user->id == Auth::user()->id)
           <div class = "delete-form text-right">
             <form action="/posts/{{ $post->id }}" method="POST" onsubmit="if(confirm('本当に削除してよろしいですか？')) { return true } else {return false };">
               <input type="hidden" name="_method" value="DELETE">
@@ -43,7 +43,7 @@
             {{$comment->created_at}}
             <br>
             {{$comment->body}}
-            @if ($comment->user->id == Auth::user()->id)
+            @if (Auth::check() && $comment->user->id == Auth::user()->id)
             <div class = "delete-form text-right">
               <form name = "comment_delete" action="/comments/{{ $comment->id }}" method="POST" onsubmit="if(confirm('本当に削除してよろしいですか？')) { return true } else {return false };">
                 <input type="hidden" name="_method" value="DELETE">
@@ -58,25 +58,26 @@
           コメントはありません
         @endif
       </div>
-
-      <div class="posts-show-body">
-        <form method="POST" action="{{ route('comments.store') }}" enctype="multipart/form-data">
-        @csrf
-          <div class="form-group row">
-            <input type="hidden" name="post_id" value="{{$post->id}}">
-            <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
-            <textarea id="body" rows='4' class="form-control @error('body') is-invalid @enderror samazon-login-input" name="body"  placeholder="400文字以内.."></textarea>
-            @error('body')
-              @foreach ($errors->get('body') as $error)
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $error }}</strong>
-                </span>
-              @endforeach
-            @enderror
-            <button type="submit" class="btn samazon-submit-button w-100">コメント投稿</button>
-          </div>
-        </form>
-     </div>
+      @auth
+        <div class="posts-show-body">
+          <form method="POST" action="{{ route('comments.store') }}" enctype="multipart/form-data">
+          @csrf
+            <div class="form-group row">
+              <input type="hidden" name="post_id" value="{{$post->id}}">
+              <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+              <textarea id="body" rows='4' class="form-control @error('body') is-invalid @enderror samazon-login-input" name="body"  placeholder="400文字以内.."></textarea>
+              @error('body')
+                @foreach ($errors->get('body') as $error)
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $error }}</strong>
+                  </span>
+                @endforeach
+              @enderror
+              <button type="submit" class="btn samazon-submit-button w-100">コメント投稿</button>
+            </div>
+          </form>
+        </div>
+      @endauth
     </div>
   </div>
 

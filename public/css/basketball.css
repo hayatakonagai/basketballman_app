@@ -321,6 +321,15 @@ dd{
     top:40px;
   }
 }
+.bbs{
+  border-bottom: 1px solid rgb(224, 224, 224);
+  padding:10px 10px;
+}
+
+.bbs-image{
+  float:left;
+}
+
 /*team>index.blade.php*/
 .search-form{
   border:1px solid #CCCCCC;
