@@ -6,6 +6,15 @@
         <h1>{{$post->title}}</h1>
         <p class="display2">カテゴリ：{{$post->category}}</p>
         <p class="display2">投稿者：{{$post->user->name}}</p>
+        @if ($post->user->id == Auth::user()->id)
+          <div class = "delete-form text-right">
+            <form action="/posts/{{ $post->id }}" method="POST" onsubmit="if(confirm('本当に削除してよろしいですか？')) { return true } else {return false };">
+              <input type="hidden" name="_method" value="DELETE">
+              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+              <button type="submit" class="delete-button btn btn-warning">削除</button>
+            </form> 
+         </div>
+        @endif
       </div>
       <div class="posts-show-body">
         <p  class ="display2">{{$post->body}}</p>
@@ -19,7 +28,7 @@
         @endif
       </div>
 
-      <div class="comment-list">
+      <div class="comment-wrapper">
       <h2>コメント一覧</h2>
         @if(isset($comments))
           @foreach($comments as $comment)
@@ -34,7 +43,15 @@
             {{$comment->created_at}}
             <br>
             {{$comment->body}}
-        
+            @if ($comment->user->id == Auth::user()->id)
+            <div class = "delete-form text-right">
+              <form name = "comment_delete" action="/comments/{{ $comment->id }}" method="POST" onsubmit="if(confirm('本当に削除してよろしいですか？')) { return true } else {return false };">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <button type="submit" class="delete-button btn btn-warning">削除</button>
+              </form> 
+            </div>
+            @endif
           </div>
           @endforeach
         @else

@@ -26,4 +26,11 @@ class CommentsController extends Controller
         return redirect()->route('posts.show',['id'=>$comment->post_id]);
         
     }
+
+    public function destroy($id)
+    {
+        $comments = Comment::find($id);
+        $comments->delete();
+        return redirect()->route('posts.show',['id'=>$comments->post_id]);
+    }
 }

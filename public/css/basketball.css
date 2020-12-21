@@ -237,6 +237,12 @@ label {
   margin-bottom:20px
 }
 
+.delete-button {
+  font-family: YuGo;
+  font-weight: bold;
+  background-color: yellow;
+}
+
 .samazon-login-text {
   font-family: YuGo;
   font-size: 1rem;
