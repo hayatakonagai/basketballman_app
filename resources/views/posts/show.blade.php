@@ -14,19 +14,28 @@
         <h2>参考動画</h2>
         @if(isset($post->url))
           <?php $embed_url = substr($post->url,(strpos($post->url, "=")+1)); ?>
-          <?php $youtube_url = "<iframe width=\"80%\" height=\"400\" src=\"https://www.youtube.com/embed/$embed_url\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>" ?>
+          <?php $youtube_url = "<iframe width=\"60%\" height=\"400\" src=\"https://www.youtube.com/embed/$embed_url\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>" ?>
           <?php echo $youtube_url ?>
         @endif
       </div>
 
-      <div class="posts-show-body">
+      <div class="comment-list">
       <h2>コメント一覧</h2>
         @if(isset($comments))
           @foreach($comments as $comment)
-            {{$comment->user->name}}
-            {{$comment->body}}
+          <div class="comment-body">
+            @if (config('const.env') == "local" && $comment->user->image !== "")
+              <img src="{{ asset('storage/user/'.$comment->user->image) }}" style=width:50px;>
+            @endif
+            @if (config('const.env') == "production" && $comment->user->image !== "")
+              <img src="{{ Storage::disk('s3')->url($comment->user->image) }}"style=width:50px;>
+            @endif
+            <a href="{{route('users.show',['id'=>$comment->user->id])}}">{{$comment->user->name}}</a>
             {{$comment->created_at}}
             <br>
+            {{$comment->body}}
+        
+          </div>
           @endforeach
         @else
           コメントはありません

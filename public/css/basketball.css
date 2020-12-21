@@ -352,6 +352,10 @@ dd{
   margin-top: 20px;
 }
 
+.comment-img{
+  position:relative;
+}
+
 @media(min-width:769px){
 .mypage{
   width:50%;
@@ -434,6 +438,12 @@ dd{
 }
 
 .posts-show-body{
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid rgb(224, 224, 224);
   padding:10px 10px;
+}
+
+.comment-body{
+  border-bottom: 1px solid rgb(224, 224, 224);
+  padding:10px 10px;
+  font-size: 1.1rem;
 }
