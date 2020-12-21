@@ -10,10 +10,20 @@ use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::orderBy('created_at', 'desc')->get();
-        return view('posts.index',compact('posts'));
+        $key_category = $request->input('category');
+
+        if(isset($key_category)){
+            $posts = Post::where('category',$key_category)->paginate(3);
+            $categories = config('category');
+            return view('posts.index',compact('posts','categories'));
+            }
+        else{
+            $posts = Post::orderBy('created_at', 'desc')->get();
+            $categories = config('category');
+            return view('posts.index',compact('posts','categories'));
+        }
     }
 
     public function create()
