@@ -309,18 +309,22 @@ dd{
 .index-img{
   text-align:center;
 }
-
+/*
 @media(min-width:769px){
+    
   .main-list{
     position:relative;
     padding-right:160px;
   }
+
   .index-img{
     position:absolute;
     right:10px;
     top:40px;
   }
 }
+*/
+
 .bbs{
   border-bottom: 1px solid rgb(224, 224, 224);
   padding:10px 10px;

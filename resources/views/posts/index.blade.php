@@ -39,7 +39,10 @@
     <div class="col-md-8 col-xs-10 order-md-1">
       <h2>投稿一覧</h2>
       @foreach($posts as $post)
-        <div class="bbs bg-white shadow">
+        <div class="bbs bg-white shadow lead">
+          <div class = "bg-success text-light float-right px-4">
+          {{$post->category}}
+          </div>
           <div class ="bbs-image">
             @if (config('const.env') == "local" && $post->user->image !== "")
               <img src="{{ asset('storage/user/'.$post->user->image) }}" style=width:60px;>
@@ -50,8 +53,6 @@
           </div>
           <h3><a href="{{route('posts.show',['id'=>$post->id])}}">{{$post->title}}</a></h3>
           投稿者：<a href="{{route('users.show',['id'=>$post->user->id])}}">{{$post->user->name}}</a>
-          <br>
-          カテゴリ：{{$post->category}}
           <br>
           投稿日{{$post->created_at}}
           <div class= text-center>

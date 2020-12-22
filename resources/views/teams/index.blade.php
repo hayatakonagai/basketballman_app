@@ -56,11 +56,13 @@
         <div class="col-md-6 col-xs-10 order-md-1">
             <h2>チーム一覧</h2>
             @foreach($teams as $team)
-                <div class="main-list">
+                <div class ="bg-success text-light float-right px-4">
+                    レベル：{{$team->level}}
+                </div>
+                 <div class="main-list">
                     <dl class="teams-index">
                         <dt>チーム名</dt><dd><a href="{{route('teams.show',['id'=>$team->id])}}">{{$team->name}}</a></dd>
                         <dt>活動場所</dt><dd>{{$team->where}}</dd>
-                        <dt>レベル</dt><dd>{{$team->level}}</dd>
                         <dt>応募資格</dt><dd>{{$team->wanted}}</dd>
                         <dt>更新日</dt><dd>{{$team->updated_at}}</dd>
                         <div class ="index-img">
@@ -71,6 +73,7 @@
                                 <img src="{{ Storage::disk('s3')->url($team->image) }}" style=width:150px>
                             @endif
                         </div>
+                    </dl>
                 </div>
             @endforeach
             {{ $teams->links() }}
