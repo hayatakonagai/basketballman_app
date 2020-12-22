@@ -29,6 +29,11 @@
                    <i class="fas fa-search mr-1"></i><label>プレイヤーを探す</label>
                </a>
              </li>
+             <li class="nav-item mr-3">
+               <a class="nav-link" href="{{ route('posts.index') }}">
+                   <i class="fas fa-comments mr-1"></i><label>スキルアップ掲示板</label>
+               </a>
+             </li>
             @endguest
             @auth
              <li class="nav-item mr-3">
@@ -44,6 +49,11 @@
             <li class="nav-item mr-3">
                <a class="nav-link" href="{{ route('users.index') }}">
                    <i class="fas fa-search mr-1"></i><label>プレイヤーを探す</label>
+               </a>
+             </li>
+            <li class="nav-item mr-3">
+               <a class="nav-link" href="{{ route('posts.index') }}">
+                   <i class="fas fa-comments mr-1"></i><label>スキルアップ掲示板</label>
                </a>
              </li>
             @endauth

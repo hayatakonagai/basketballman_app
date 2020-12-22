@@ -54,16 +54,16 @@ p.display1{
   font-size: 1rem;
 }
 p.display2{
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 p.display3{
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 p.display4{
-  font-size: 2.5rem;
+  font-size: 1.75rem;
 }
 p.display5{
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 big {
@@ -237,6 +237,12 @@ label {
   margin-bottom:20px
 }
 
+.delete-button {
+  font-family: YuGo;
+  font-weight: bold;
+  background-color: yellow;
+}
+
 .samazon-login-text {
   font-family: YuGo;
   font-size: 1rem;
@@ -303,18 +309,31 @@ dd{
 .index-img{
   text-align:center;
 }
-
+/*
 @media(min-width:769px){
+    
   .main-list{
     position:relative;
     padding-right:160px;
   }
+
   .index-img{
     position:absolute;
     right:10px;
     top:40px;
   }
 }
+*/
+
+.bbs{
+  border-bottom: 1px solid rgb(224, 224, 224);
+  padding:10px 10px;
+}
+
+.bbs-image{
+  float:left;
+}
+
 /*team>index.blade.php*/
 .search-form{
   border:1px solid #CCCCCC;
@@ -350,6 +369,10 @@ dd{
   background-size: cover;
   background-position:center center;
   margin-top: 20px;
+}
+
+.comment-img{
+  position:relative;
 }
 
 @media(min-width:769px){
@@ -423,8 +446,23 @@ dd{
   color: rgba(255,255,255,0.5);
 }
 
-
-
 .login-container{
   height: 80vh;
+}
+
+.posts-show-main{
+  width:100%;
+  text-align: left;
+  background-color: white;
+}
+
+.posts-show-body{
+  border-bottom: 1px solid rgb(224, 224, 224);
+  padding:10px 10px;
+}
+
+.comment-body{
+  border-bottom: 1px solid rgb(224, 224, 224);
+  padding:10px 10px;
+  font-size: 1.1rem;
 }

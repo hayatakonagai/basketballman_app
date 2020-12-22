@@ -16,6 +16,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->HasMany('App\Team');
     }
 
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
+
     public $timestamps = false;
 
     use Notifiable, Favoriter;
