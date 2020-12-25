@@ -14,7 +14,7 @@ class Like extends Model
      //いいねしている投稿
     public function post()
     {
-        return $this->belongsTo(Post::class);
+        return $this->belongsTo('App\Post');
     }
 
     //いいねが既にされているかを確認
