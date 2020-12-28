@@ -27,7 +27,21 @@
           <?php echo $youtube_url ?>
         @endif
       </div>
-
+      @auth
+      <div>
+        @if($like_model->like_exist(Auth::user()->id,$post->id))
+        <p class="favorite-marke">
+          <a class="js-like-toggle liked" href="" data-postid="{{ $post->id }}"><i class="fas fa-heart fa-2x"></i></a>
+          <span class="likesCount" >{{$post->likes_count}}</span>
+        </p>
+        @else
+        <p class="favorite-marke">
+          <a class="js-like-toggle" href="" data-postid="{{ $post->id }}"><i class="fas fa-heart fa-2x"></i></a>
+          <span class="likesCount">{{$post->likes_count}}</span>
+        </p>
+        @endif​
+      </div>
+      @endauth
       <div class="comment-wrapper">
       <h2>コメント一覧</h2>
         @if(isset($comments))

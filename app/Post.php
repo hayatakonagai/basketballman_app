@@ -12,12 +12,15 @@ class Post extends Model
 
     public function user()
     {
-        return $this->BelongsTo('App\User');
+        return $this->belongsTo('App\User');
     }
 
     public function comments()
     {
         return $this->hasMany('App\Comment');
     }
-    
+    public function likes()
+    {
+        return $this->hasMany('App\Like');
+    }
 }
