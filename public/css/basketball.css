@@ -470,3 +470,9 @@ dd{
 .liked {
   color: red !important;
 }
+
+/*herokuに追記したcssが反映されないため、ダミーを書いて確認*/
+.test{
+  color:blue;
+}
+
