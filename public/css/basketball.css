@@ -466,3 +466,7 @@ dd{
   padding:10px 10px;
   font-size: 1.1rem;
 }
+
+.liked {
+  color: red;
+}
