@@ -6,7 +6,7 @@
           <p>Find a Tactics</p>
       </div>
   </div>
-
+<h1 class = "heroku_test">herokuのテストです</h1>
   @auth
   <div class="row justify-content-center">
         <div class="wrapper-link-button col-md-4 xs-10" >

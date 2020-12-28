@@ -472,7 +472,7 @@ dd{
 }
 
 /*herokuに追記したcssが反映されないため、ダミーを書いて確認*/
-.test{
+.heroku_test{
   color:blue;
 }
 
