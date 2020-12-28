@@ -468,5 +468,5 @@ dd{
 }
 
 .liked {
-  color: red;
+  color: red!important;
 }
