@@ -29,5 +29,11 @@
         <server name="MAIL_DRIVER" value="array"/>
         <server name="QUEUE_CONNECTION" value="sync"/>
         <server name="SESSION_DRIVER" value="array"/>
+         <!-- テストで使うDBのスキーマ名 -->
+        <server name="DB_DATABASE" value="test_db"/>
+        <!-- 接続するuserの名前 -->
+        <server name="DB_USERNAME" value="root"/>
+        <!-- 接続するuserのパスワード -->
+        <server name="DB_PASSWORD" value="ugcvbmkt"/>
     </php>
 </phpunit>
