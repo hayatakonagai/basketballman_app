@@ -6,6 +6,8 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\User;
+use App\Team;
+use App\Post;
 
 class DatabaseTest extends TestCase
 {
@@ -14,7 +16,8 @@ class DatabaseTest extends TestCase
      *
      * @return void
      */
-    //テスト用DB(test_db）Userテーブルでレコード作成→削除のテスト
+    //テスト用DB(test_db）の動作確認：Usersテーブルでレコード作成→削除を行う。
+
     public function testDatabaseUser()
     {
         $user = new User;
@@ -32,8 +35,6 @@ class DatabaseTest extends TestCase
         $user->appeal = "本気でやっているチームに入りたいです";
         $user->image = null;
         $user->save();
-
-        $FindUser = User::where('name', 'hayata')->first();
         $this->assertNotNull($FindUser);            // データが取得できたかテスト
         User::where('name', 'hayata')->delete(); // テストデータの削除
     }
