@@ -10,7 +10,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class PostsControllerTest extends TestCase
+class CommentsControllerTest extends TestCase
 {
     /**
      * A basic feature test example.

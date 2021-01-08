@@ -7,7 +7,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class ExampleTest extends TestCase
+class HomeControllerTest extends TestCase
 {
     use RefreshDatabase; //DB（ここではtest_db）のデータを空にする
     /**
