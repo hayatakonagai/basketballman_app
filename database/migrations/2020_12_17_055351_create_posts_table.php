@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->enum('category',['技術','戦術','練習方法','メンタル','バスケ雑学','その他']);
             $table->text('body');
             $table->text('url')->nullable();
-            $table->unsignedInteger('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
 
             $table->foreign('user_id')
