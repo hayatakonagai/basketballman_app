@@ -17,7 +17,8 @@ class ExampleTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/')
-            ->assertDontSee('ログイン');
+            ->assertSee('ログイン')
+            ->assertSee('新規登録');
         });
     }
 }
