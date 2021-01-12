@@ -12,7 +12,7 @@
                 メールが届いていない場合は、マイページよりメールアドレスを確認いただくか、お使いのメールアプリの迷惑メールフォルダ及び受信設定をご確認ください。
             </p>
             <div class="text-center">
-                <a href="/" class="btn samazon-submit-button w-50 text-white">トップページへ</a>
+                <a href="/" class="btn basketball_app-submit-button w-50 text-white">トップページへ</a>
             </div>
         </div>
     </div>

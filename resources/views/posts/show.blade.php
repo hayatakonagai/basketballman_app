@@ -79,7 +79,7 @@
             <div class="form-group row">
               <input type="hidden" name="post_id" value="{{$post->id}}">
               <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
-              <textarea id="body" rows='4' class="form-control @error('body') is-invalid @enderror samazon-login-input" name="body"  placeholder="400文字以内.."></textarea>
+              <textarea id="body" rows='4' class="form-control @error('body') is-invalid @enderror basketball_app-login-input" name="body"  placeholder="400文字以内.."></textarea>
               @error('body')
                 @foreach ($errors->get('body') as $error)
                   <span class="invalid-feedback" role="alert">
@@ -87,7 +87,7 @@
                   </span>
                 @endforeach
               @enderror
-              <button type="submit" class="btn samazon-submit-button w-100">コメント投稿</button>
+              <button type="submit" class="btn basketball_app-submit-button w-100">コメント投稿</button>
             </div>
           </form>
         </div>

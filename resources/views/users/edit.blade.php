@@ -15,7 +15,7 @@
                     @include('users.sections.form')
 
                     <div class="form-group">
-                      <button type="submit" class="btn samazon-submit-button w-100">
+                      <button type="submit" class="btn basketball_app-submit-button w-100">
                          会員情報の更新
                       </button>
 

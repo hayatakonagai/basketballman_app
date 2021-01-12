@@ -12,7 +12,7 @@
             @include('posts.sections.form')
 
                  <div class="form-group">
-                    <button type="submit" class="btn samazon-submit-button w-100">
+                    <button type="submit" class="btn basketball_app-submit-button w-100">
                     チーム作成
                     </button>
                 </div>

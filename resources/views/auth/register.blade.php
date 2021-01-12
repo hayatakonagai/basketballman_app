@@ -13,9 +13,9 @@
                 @include('users.sections.form')
 
                 <div class="form-group row">
-                    <label for="password" class="col-md-5 col-form-label text-md-left">パスワード<span class="ml-1 samazon-require-input-label"><span class="samazon-require-input-label-text">必須</span></span></label>
+                    <label for="password" class="col-md-5 col-form-label text-md-left">パスワード<span class="ml-1 basketball_app-require-input-label"><span class="basketball_app-require-input-label-text">必須</span></span></label>
                     <div class="col-md-7">
-                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror samazon-login-input" name="password" required autocomplete="new-password">
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror basketball_app-login-input" name="password" required autocomplete="new-password">
 
                         @error('password')
                         @foreach ($errors->get('password') as $error)
@@ -31,12 +31,12 @@
                     <label for="password-confirm" class="col-md-5 col-form-label text-md-left">バスワード（確認）</label>
 
                     <div class="col-md-7">
-                        <input id="password-confirm" type="password" class="form-control samazon-login-input" name="password_confirmation" required autocomplete="new-password">
+                        <input id="password-confirm" type="password" class="form-control basketball_app-login-input" name="password_confirmation" required autocomplete="new-password">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <button type="submit" class="btn samazon-submit-button w-100">
+                    <button type="submit" class="btn basketball_app-submit-button w-100">
                         アカウント作成
                     </button>
                 </div>

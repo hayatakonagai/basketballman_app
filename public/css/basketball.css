@@ -107,13 +107,13 @@ label {
   /*color: #191919;*/
 }
 
-.samazon-login-input {
+.basketball_app-login-input {
   border-radius: 2px;
   border: solid 1px #b2b2b2;
   background-color: #ffffff;
 }
 
-.samazon-check-label {
+.basketball_app-check-label {
   font-family: YuGo;
   font-size: 12px;
   font-weight: 500;
@@ -124,12 +124,12 @@ label {
   color: #000000;
 }
 
-.samazon-require-input-label {
+.basketball_app-require-input-label {
   border-radius: 1px;
   background-color: #e2001b;
 }
 
-.samazon-require-input-label-text {
+.basketball_app-require-input-label-text {
   font-family: YuGo;
   font-size: 14px;
   font-weight: 500;
@@ -139,12 +139,12 @@ label {
   letter-spacing: normal;
   color: #ffffff;
 }
-.samazon-nullable-input-label {
+.basketball_app-nullable-input-label {
   border-radius: 1px;
   background-color:yellowgreen;
 }
 
-.samazon-nullable-input-label-text {
+.basketball_app-nullable-input-label-text {
   font-family: YuGo;
   font-size: 14px;
   font-weight: 500;
@@ -209,7 +209,7 @@ label {
   cursor: pointer;
 }
 
-.samazon-submit-button {
+.basketball_app-submit-button {
   font-family: YuGo;
   font-size: 1rem;
   font-weight: bold;
@@ -222,7 +222,7 @@ label {
   background-color: #0fbe9f;
 }
 
-.samazon-edit-button {
+.basketball_app-edit-button {
   font-family: YuGo;
   font-size: 14px;
   font-weight: bold;
@@ -243,7 +243,7 @@ label {
   background-color: yellow;
 }
 
-.samazon-login-text {
+.basketball_app-login-text {
   font-family: YuGo;
   font-size: 1rem;
   font-weight: bold;
@@ -253,21 +253,21 @@ label {
   letter-spacing: normal;
   color: #0fbe9f;
 }
-.samazon-header-container {
+.basketball_app-header-container {
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
   /*background-color: #ffffff;*/
 }
 
-.samazon-header-search-input {
+.basketball_app-header-search-input {
   border: solid 1px #e5e5e5;
 }
 
-.samazon-header-search-icon {
+.basketball_app-header-search-icon {
   color: #ffffff;
 }
 
 
-.samazon-favorite-button {
+.basketball_app-favorite-button {
   border-radius: 2px;
   border: solid 1px #0fbe9f;
   background-color: #ffffff;
@@ -276,7 +276,7 @@ label {
 .text-favorite {
   color: #0fbe9f;
 }
-.samazon-sidebar-category-label {
+.basketball_app-sidebar-category-label {
   width: 156px;
   height: 20px;
   font-family: YuGo;

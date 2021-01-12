@@ -24,7 +24,7 @@
                 @csrf
 
                 <div class="form-group">
-                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror samazon-login-input" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="メールアドレス">
+                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror basketball_app-login-input" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="メールアドレス">
 
                     @error('email')
                     <span class="invalid-feedback" role="alert">
@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="form-group">
-                    <button type="submit" class="btn samazon-submit-button w-100">
+                    <button type="submit" class="btn basketball_app-submit-button w-100">
                         送信
                     </button>
                 </div>
