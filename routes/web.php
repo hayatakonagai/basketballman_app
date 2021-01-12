@@ -26,18 +26,9 @@ if (env('APP_ENV') === 'production') {
          URL::forceScheme('https');
      }
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/login/guest', 'Auth\LoginController@guestLogin');
-
 Route::resource('posts', 'PostsController');
 Route::resource('comments', 'CommentsController' , ['only' => ['store','destroy']]);
-
 Route::group(['middleware' => ['auth']], function () {
     //「ajaxlike.jsファイルのurl:'ルーティング'」に書くものと合わせる。
     Route::post('ajaxlike', 'PostsController@ajaxlike')->name('posts.ajaxlike');
