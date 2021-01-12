@@ -69,7 +69,7 @@
   @auth
     <div class="row justify-content-center">
       <div class="col-md-5 text-center">
-        <button type="button" class="btn samazon-submit-button"onclick="location.href='mailto:{{$user->email}}?subject=【{{config('app.name')}}】お問い合わせ&body={{$user->name}}様 %0D%0A %0D%0A はじめまして。○○と申します。%0D%0A {{$user->name}}様のプロフィールを拝見しまして、ぜひチームへの加入を検討いただきたく、ご連絡させていただきました。%0D%0A %0D%0A【チームの詳細】%0D%0A （記載願います） %0D%0A %0D%0A ご検討いただければ幸いです。よろしくお願いします。'">
+        <button type="button" class="btn basketball_app-submit-button"onclick="location.href='mailto:{{$user->email}}?subject=【{{config('app.name')}}】お問い合わせ&body={{$user->name}}様 %0D%0A %0D%0A はじめまして。○○と申します。%0D%0A {{$user->name}}様のプロフィールを拝見しまして、ぜひチームへの加入を検討いただきたく、ご連絡させていただきました。%0D%0A %0D%0A【チームの詳細】%0D%0A （記載願います） %0D%0A %0D%0A ご検討いただければ幸いです。よろしくお願いします。'">
         <i class="fas fa-envelope fa-3x"></i><h5>このユーザーへメールを送る</h5></a>
         </button>
       </div>
@@ -78,7 +78,7 @@
   @if(Auth::guest())
     <div class="row justify-content-center">
       <div class="col-md-5 text-center">
-        <button type="button" class="btn samazon-submit-button" onclick="location.href='/login'">
+        <button type="button" class="btn basketball_app-submit-button" onclick="location.href='/login'">
         <i class="fas fa-envelope fa-3x"></i><h5>このユーザーへメールを送る</h5></a>
         </button>
       </div>

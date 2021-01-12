@@ -3,10 +3,9 @@
 <div class="container">
   <div class="row">
       <div class="user-index-image col-12" >
-          <p>Find a Tactics</p>
+          <p>Improve your skills</p>
       </div>
   </div>
-<h1 class = "heroku_test">herokuのテストです</h1>
   @auth
   <div class="row justify-content-center">
         <div class="wrapper-link-button col-md-4 xs-10" >

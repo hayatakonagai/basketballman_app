@@ -33,31 +33,7 @@
                 </div>
             </div>
         </div>
-
         <hr>
-
-                <div class="container">
-            <div class="d-flex justify-content-between">
-                <div class="row">
-                    <div class="col-2 d-flex align-items-center">
-                        <i class="fas fa-history fa-3x"></i>
-                    </div>
-                    <div class="col-9 d-flex align-items-center ml-3 mt-3">
-                        <div class="d-flex flex-column">
-                            <label for="history">閲覧履歴</label>
-                            <p>閲覧したチームを確認できます</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center">
-                    <a href="#">
-                        <i class="fas fa-chevron-right fa-2x"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-                <hr>
-
         <div class="container">
             <div class="d-flex justify-content-between">
                 <div class="row">
@@ -78,9 +54,7 @@
                 </div>
             </div>
         </div>
-
         <hr>
-
         <div class="container">
             <div class="d-flex justify-content-between">
                 <div class="row">

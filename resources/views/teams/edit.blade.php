@@ -13,13 +13,13 @@
           <input type="hidden" name="_method" value="PUT">
 
           <div class="form-group row">
-            <label for="status" class="col-md-5 col-form-label text-md-left">募集状況<span class="ml-1 samazon-require-input-label"><span class="samazon-require-input-label-text">必須</span></span></label>
+            <label for="status" class="col-md-5 col-form-label text-md-left">募集状況<span class="ml-1 basketball_app-require-input-label"><span class="basketball_app-require-input-label-text">必須</span></span></label>
 
             <div class="col-md-7">
             @php
               $selectedStatus = old('status', !empty($team->status) ?  $team->status : '');
             @endphp
-              <select id="status" class="form-control @error('status') is-invalid @enderror samazon-login-input" name="status">
+              <select id="status" class="form-control @error('status') is-invalid @enderror basketball_app-login-input" name="status">
                   <option value="募集中" @if($selectedStatus == '募集中') selected @endif>募集中</option>
                   <option value="応募終了" @if($selectedStatus == '応募終了') selected @endif>応募終了</option>
               </select>
@@ -35,7 +35,7 @@
           @include('teams.sections.form')
 
           <div class="form-group">
-            <button type="submit" class="btn samazon-submit-button w-100">変更する</button>
+            <button type="submit" class="btn basketball_app-submit-button w-100">変更する</button>
           </div>
        </form>
     </div>

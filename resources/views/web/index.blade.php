@@ -24,7 +24,7 @@
         @endguest
     </div>
     @auth
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mt-4">
         <div class="toppage-description col-md-3 text-center">
             <i class="fas fa-user-plus fa-6x"></i>
             <a href="{{route('teams.create')}}"><h2>新規メンバー募集</h2></a>
