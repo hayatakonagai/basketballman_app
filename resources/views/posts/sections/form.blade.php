@@ -56,7 +56,7 @@
     <label for="url" class="col-md-5 col-form-label text-md-left">参考動画<span class="ml-1 basketball_app-nullable-input-label"><span class="basketball_app-nullable-input-label-text">任意</span></span></label>
 
     <div class="col-md-7">
-        <textarea id="url" rows='4' class="form-control @error('url') is-invalid @enderror basketball_app-login-input" name="url"  placeholder="インターハイ出場etc..">{{old('url', !empty($posts->url) ?  $posts->url : '')}}</textarea>
+        <textarea id="url" rows='4' class="form-control @error('url') is-invalid @enderror basketball_app-login-input" name="url"  placeholder="埋め込みURLではなくURLをそのまま入れてください">{{old('url', !empty($posts->url) ?  $posts->url : '')}}</textarea>
 
         @error('url')
         @foreach ($errors->get('url') as $error)
