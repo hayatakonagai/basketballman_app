@@ -129,7 +129,7 @@ class UserController extends Controller
         $user->weight=$request->weight;
         $user->age=$request->age;
         $user->where=$request->where;
-        $user->position =$request->position;
+        $user->position =$request->position; 
         $user->carrer=implode(',',$request->carrer);
         $user->acievement=$request->acievement;
         $user->appeal=$request->appeal;

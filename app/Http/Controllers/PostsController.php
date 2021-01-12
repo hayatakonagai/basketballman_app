@@ -10,12 +10,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
-{
-    public function __construct()
+{   
+     public function __construct()
     {
         $this->middleware('auth')->except(['index', 'show']);
     }
-
+    
     public function index(Request $request)
     {
         $key_category = $request->input('category');
@@ -95,7 +95,7 @@ class PostsController extends Controller
         $user = User::all();
         $like_model = new Like;
         $comments = Comment::where('post_id',$post->id)->get();
-        $post = Post::withCount('likes')->findOrFail($post->id);
+
         return view('posts.show',compact('post','user','comments','like_model'));
     }
 
