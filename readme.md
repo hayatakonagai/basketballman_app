@@ -1,12 +1,3 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
-
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
-
 # バスケットマン集結
 
 <img width="1440" alt="スクリーンショット" src="https://github.com/hayatakonagai/basketballman_app/blob/master/public/readme/%E3%83%88%E3%83%83%E3%83%97%E3%83%9A%E3%83%BC%E3%82%B8.png">
@@ -17,17 +8,74 @@ TOPページのゲストログインより、機能確認用の『ゲストユ�
 ゲストユーザーは通常のユーザーと同様に投稿や編集を行うことができます。
 
 ## 概要
+「バスケットマン集結」
+- バスケがしたい人→登録してあるチームを探すことができます
 
+
+- バスケメンバーを募集したい人→チーム登録を行いメンバーの募集ができます。登録ユーザーを検索し、直接スカウトすることもできます。
+
+
+- バスケがうまくなりたい人→掲示板で技術に関する質問、情報共有ができます。
 
 ## なぜこのサービスを作ったか
+バスケをやろう・メンバーを募集しようと考えたら、「mixi」「ジモティー」「つなげーと」などのサークル募集サイトが広く活用されておりますが、特定のスポーツに特化したサービスはありません。
 
+私は中学の頃から現在までの約20年バスケを続けており、選手・チーム代表者・指導者という3つの立場を経験したことがあります。
+
+立場によって解決したい悩みは変わります。そこで**バスケに関する悩みを包括的に解決できるサービスを作りたいと考えました。**
+### 解決したい3つの悩み
+前述の通り私は自分の経験から、「バスケ」というスポーツに関して3つの悩みを経験しました。
+#### ①選手の悩み
+選手側は「自分のレベルに合ったところでプレーをしたい」と考えていますが、**「レベル」でカテゴライズされているサイトは少数派**です。
+
+そのため、チーム登録の際は「レベル」はもちろんのこと、詳細なフォームに情報を書いてもらうことで、簡単に自分が求めるレベルのチームが見つかるようにしています。
+#### ②チーム代表者の悩み
+チーム代表者も同様に、「自分たちのチームレベルに合った人に来て欲しい」と考えています。
+**しかしながら、ユーザーがチームへの応募をすることはあっても、チームから声をかけることができるサイトはありませんでした。**
+
+「バスケットマン集結」では、ユーザー登録のフォームにバスケ経験など詳細を記載する必要があるため、「身長」などの条件でフィルタリングを行い、条件が合う選手に声をかけることができるようにしています。
+#### ③指導者の悩み
+地方（静岡）にいた頃、友人の教員から頼まれバスケ部のコーチをしたことがありました。**なぜならその教員はバレー部出身でバスケについては知識がなく、困った様子で私に相談をしてきたのです。**
+
+中学生の頃、バスケ部の顧問の先生が全くバスケがわからない人だったことを思いだし、地方では技術を持った指導者が少ない上に部員数も少ないため、都市部との技術格差は広がっていくのではと感じました。
+
+そこでこのサービスからバスケの技術等（練習メニュー、思考、戦術など）を共有し、環境に関係なく技術を身に付けてもらいたいと考えています。
 
 ## 使用技術
-
+- HTML/CSS
+- Bootstrap
+- javascript
+- jQuery
+- PHP 7.3.
+- Laravel 5.8
+- MySQL 8.0.22
+- AWS (EC2, RDS for MySQL, S3, VPC, Route53, ALB, ACM)
+- Apache
+- phpunit
+- Laravel dusk
+- VS CODE
 
 ## AWSネットワーク構成図
 <img width="1439" alt="スクリーンショット" src="https://github.com/hayatakonagai/basketballman_app/blob/master/public/readme/AWS%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E6%A7%8B%E6%88%90%E5%9B%B3%20.jpg">
 
 ## ER図
+![](https://github.com/hayatakonagai/basketballman_app/blob/master/public/readme/ER.jpg)
 
 ## 機能一覧
+- ログイン/ログアウト ユーザー登録
+- ゲストログイン
+- マイページ編集・更新
+- パスワード再設定
+- チームの作成・編集・更新・削除
+- 絞り込み検索（複数条件可）
+- 掲示板機能
+- 画像投稿
+- youtube動画URL表示機能（埋め込みURLを使わなくて良い）
+- コメント機能
+- イイね機能（ajax）
+- 投稿一覧表示
+- 投稿詳細表示
+- 各フォームにてバリデーション及びoldヘルパによる値の保持
+- ページネーション
+- レスポンシブ対応
+
