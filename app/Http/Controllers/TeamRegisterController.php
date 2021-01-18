@@ -94,7 +94,7 @@ class TeamRegisterController extends Controller
         'people' =>'nullable',
         'wanted' =>'required',
         'description' =>'required',
-        'image'=>'file|image|max:2048|nullable'
+        'image'=>'file|mimes:jpg,jpeg,png,gif|max:2048|nullable'
         ]);
 
         $team= new Team;
@@ -170,7 +170,7 @@ class TeamRegisterController extends Controller
             'people' =>'nullable',
             'wanted' =>'required',
             'description' =>'required',
-            'image'=>'file|image|max:2048|nullable'
+            'image'=>'file|mimes:jpg,jpeg,png,gif|max:2048|nullable'
             ]);
     
             $user = Auth::user();

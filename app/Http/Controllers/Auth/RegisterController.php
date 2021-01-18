@@ -61,7 +61,7 @@ class RegisterController extends Controller
             'carrer' => ['required'],
             'acievement' => ['nullable','max:255'],
             'appeal' => ['nullable','max:255'],
-            'image' =>['nullable','file','image','max:2048']
+            'image'=>['file','mimes:jpg,jpeg,png,gif','max:2048','nullable']
         ]);
     }
 

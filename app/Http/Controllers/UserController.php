@@ -118,7 +118,7 @@ class UserController extends Controller
             'carrer' => ['required'],
             'acievement' => ['nullable','max:255'],
             'appeal' => ['nullable','max:255'],
-            'image'=>['file','image','max:2048','nullable']
+            'image'=>['file','mimes:jpg,jpeg,png,gif','max:2048','nullable']
         ]);
         
         $user = Auth::user();
