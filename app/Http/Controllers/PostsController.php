@@ -27,7 +27,7 @@ class PostsController extends Controller
             return view('posts.index',compact('posts','categories','like_model'));
             }
         else{
-            $posts = Post::withCount('likes')->orderBy('created_at', 'desc')->get();
+            $posts = Post::withCount('likes')->orderBy('created_at', 'desc')->paginate(3);
             $categories = config('category');
             $like_model = new Like;
             return view('posts.index',compact('posts','categories','like_model'));

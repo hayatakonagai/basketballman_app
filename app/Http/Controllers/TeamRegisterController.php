@@ -38,7 +38,7 @@ class TeamRegisterController extends Controller
             return view('teams.index',compact('teams','prefs','levels'));
             }
         else if(isset($key_level)){
-            $teams = Team::where('where',$key_level)->paginate(3);
+            $teams = Team::where('level',$key_level)->paginate(3);
             $prefs = config('pref');
             $levels = config('level');
             return view('teams.index',compact('teams','prefs','levels')); 

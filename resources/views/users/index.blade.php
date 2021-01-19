@@ -76,7 +76,7 @@
           </dl>
         </div>
       @endforeach
-      {{ $users->links() }}
+      {{ $users->appends(request()->query())->links() }}
     </div>
   </div>
 </div>

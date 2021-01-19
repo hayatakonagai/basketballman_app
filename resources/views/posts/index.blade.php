@@ -76,6 +76,7 @@
         @endif​
         @endauth
       @endforeach
+      {{ $posts->appends(request()->query())->links() }}
     </div>
   </div>
 </div>
